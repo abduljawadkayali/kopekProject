@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Crud;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CrudController extends Controller
 {
@@ -19,6 +20,9 @@ class CrudController extends Controller
     public function index()
     {
         $data = Crud::all();
+       toast('Your Post as been submited!','success');
+       // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
+       // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         return view('crud.index', compact('data'));
     }
 
@@ -29,6 +33,7 @@ class CrudController extends Controller
      */
     public function create()
     {
+        alert()->error('ErrorAlert','Lorem ipsum dolor sit amet.');
         return view('crud.create');
     }
 

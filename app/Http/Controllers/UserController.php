@@ -5,10 +5,13 @@ use App\User;
 use Auth;
 
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 //Enables us to output flash messaging
 use Session;
+use UxWeb\SweetAlert\SweetAlert;
+
 class UserController extends Controller
 {
     public function __construct() {
@@ -63,9 +66,11 @@ class UserController extends Controller
             }
         }
         //Redirect to the users.index view and display message
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully added.');
+
+
+
+        toast(__('User informations Added Successfully'),'success');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -108,10 +113,9 @@ class UserController extends Controller
         //Validate name, email and password fields
         $this->validate($request, [
             'name'=>'required|max:120',
-            'email'=>'required|email|unique:users,email,'.$id,
-            'password'=>'required|min:6|confirmed'
+            'email'=>'required|email|unique:users,email,'.$id
         ]);
-        $input = $request->only(['name', 'email', 'password']); //Retreive the name, email and password fields
+        $input = $request->only(['name', 'email']); //Retreive the name, email and password fields
         $roles = $request['roles']; //Retreive all roles
         $user->fill($input)->save();
 
@@ -121,9 +125,8 @@ class UserController extends Controller
         else {
             $user->roles()->detach(); //If no role is selected remove exisiting role associated to a user
         }
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully edited.');
+        toast(__('User informations Updated Successfully'),'success');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -136,9 +139,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
         $user->delete();
-
-        return redirect()->route('users.index')
-            ->with('flash_message',
-                'User successfully deleted.');
+        toast(__('User informations Deleted Successfully'),'info');
+        return redirect()->route('users.index');
     }
 }

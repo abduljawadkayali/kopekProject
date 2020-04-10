@@ -4,7 +4,7 @@
     <h1><i class="fas fa-user-shield"></i> Cruds</h1>
 @endsection
 @section('content')
-
+  
 
 <div class="container">
 	<div class="row">

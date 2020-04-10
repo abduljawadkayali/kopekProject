@@ -17,7 +17,6 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all(); //show only 5 items at a time in descending order
-
         return view('posts.index', compact('posts'));
     }
 

@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'tr',
 
     /*
     |--------------------------------------------------------------------------
@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -229,7 +230,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
-        
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+
 
     ],
 

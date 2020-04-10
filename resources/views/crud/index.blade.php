@@ -5,11 +5,6 @@
 @endsection
 @section('content')
 
-@if ($message = Session::get('success'))
-<div class="alert alert-success">
-	<p>{{ $message }}</p>
-</div>
-@endif
 <br>
 <br>
 <div class="container">
@@ -25,7 +20,6 @@
 <div>
 
 </div>
-
 
 <table class="table table-bordered table-striped">
 	<tr>
@@ -62,7 +56,6 @@
 	@endforeach
 
 </table>
-
 
 
 @endsection
