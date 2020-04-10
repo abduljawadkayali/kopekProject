@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderby('id', 'desc')->paginate(5); //show only 5 items at a time in descending order
+        $posts = Post::all(); //show only 5 items at a time in descending order
 
         return view('posts.index', compact('posts'));
     }
@@ -43,12 +43,14 @@ class PostController extends Controller
         $this->validate($request, [
             'title'=>'required|max:100',
             'body' =>'required',
+            'status' =>'required'
         ]);
 
         $title = $request['title'];
+        $status = $request['status'];
         $body = $request['body'];
 
-        $post = Post::create($request->only('title', 'body'));
+        $post = Post::create($request->only('title', 'body','status'));
 
         //Display a successful message upon save
         return redirect()->route('posts.index')
@@ -94,11 +96,13 @@ class PostController extends Controller
         $this->validate($request, [
             'title'=>'required|max:100',
             'body'=>'required',
+            'status' =>'required'
         ]);
 
         $post = Post::findOrFail($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->status = $request->input('status');
         $post->save();
 
         return redirect()->route('posts.show',

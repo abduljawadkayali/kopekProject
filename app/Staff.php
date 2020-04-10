@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Post extends Model
+class Staff extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'name', 'page', 'status'
+        'name', 'job', 'description', 'image', 'mail', 'phone'
     ];
 }

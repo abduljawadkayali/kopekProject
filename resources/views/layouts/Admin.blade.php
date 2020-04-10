@@ -32,10 +32,10 @@
             <i class="fas fa-sign-out-alt">@lang("Logout")</i>
                 </a>
             </li>
-            
-                                            
-            
-            
+
+
+
+
             <li class="nav-item">
                 <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                     <i class="fas fa-th-large"></i>
@@ -75,7 +75,7 @@
                         <a href="#" class="nav-link ">
                             <i class="nav-icon fas fa-tachometer-alt "></i>
                             <p>
-                               @lang("Dashboard") 
+                               @lang("Dashboard")
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
@@ -100,15 +100,16 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item">
-                                <a href="/" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>@lang("Permissions")</p>
-                                </a>
-                            </li>
-                    
-                  
-                  
+                        <a href="crud" class="nav-link">
+                            <i class="far fa-circle nav-icon"></i>
+                            <p>@lang("Cruds")</p>
+                        </a>
+                    </li>
+
+
+
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
@@ -119,7 +120,7 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
-       
+
         <!-- /.content-header -->
 
         <!-- Main content -->
@@ -130,14 +131,14 @@
                     <div class="col-sm-6">
                         <h1 class="m-0 text-dark">@yield('header')</h1>
                     </div><!-- /.col -->
-                   
+
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 @yield('content')
-             
+
                 <!-- /.row (main row) -->
             </div><!-- /.container-fluid -->
         </section>
