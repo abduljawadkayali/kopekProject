@@ -68,10 +68,8 @@ class RoleController extends Controller
             $role = Role::where('name', '=', $name)->first();
             $role->givePermissionTo($p);
         }
-
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-                'Role'. $role->name.' added!');
+        toast(__('Role Added Successfully'),'success');
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -130,10 +128,8 @@ class RoleController extends Controller
             $p = Permission::where('id', '=', $permission)->firstOrFail(); //Get corresponding form //permission in db
             $role->givePermissionTo($p);  //Assign permission to role
         }
-
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-                'Role'. $role->name.' updated!');
+        toast(__('Role Updated Successfully'),'success');
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -146,9 +142,7 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
         $role->delete();
-
-        return redirect()->route('roles.index')
-            ->with('flash_message',
-                'Role deleted!');
+        toast(__('Role Deleted Successfully'),'info');
+        return redirect()->route('roles.index');
     }
 }

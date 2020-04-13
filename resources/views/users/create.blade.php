@@ -47,6 +47,7 @@
         {{ Form::submit(__('Add'), array('class' => 'btn btn-primary')) }}
 
         {{ Form::close() }}
+        <br>
 
     </div>
         </div>

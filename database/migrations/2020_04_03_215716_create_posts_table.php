@@ -17,7 +17,7 @@ class CreatePostsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->text('body');
-            $table->enum('status', ['Active', 'Disabled'])->default('Disabled');
+            $table->enum('status', ['on', 'off'])->default('off');
             $table->softDeletes();
             $table->timestamps();
         });

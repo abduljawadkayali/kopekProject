@@ -1,31 +1,50 @@
 @extends('layouts.Admin')
 
-@section('header')
-    <h1><i class="fas fa-user-shield"></i> Cruds</h1>
-@endsection
+@section('title', '| Posts')
+
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><h3>Posts</h3></div>
-                    <div class="panel-heading">Page {{ $posts->currentPage() }} of {{ $posts->lastPage() }}</div>
-                    @foreach ($posts as $post)
-                        <div class="panel-body">
-                            <li style="list-style-type:disc">
-                                <a href="{{ route('posts.show', $post->id ) }}"><b>{{ $post->title }}</b><br>
-                                    <p class="teaser">
-                                    {{ \Illuminate\Support\Str::limit($post->body ?? '',100,' ...') }}
-                                    </p>
-                                </a>
-                            </li>
-                        </div>
-                    @endforeach
-                    </div>
-                    <div class="text-center">
-                        {!! $posts->links() !!}
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<div class="col-lg-10 col-lg-offset-1">
+    <h1><i class="fa fa-newspaper"></i>
+    @lang("Posts")
+</h1>
+    <hr>
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+
+            <thead>
+                <tr>
+                    <th>@lang("Name")</th>
+                    <th>@lang("Body")</th>
+                    <th>@lang("Status")</th>
+                    <th>@lang("Operations")</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach ($posts as $post)
+                <tr>
+                    <td>{{ $post->name }}</td>
+                      <td>{{ \Illuminate\Support\Str::limit($post->body, 50, '...') }}</td>
+                        <td>{{ $post->status }}</td>
+                    <td>
+
+
+                    {!! Form::open(['method' => 'DELETE', 'route' => ['posts.destroy', $post->id] ]) !!}
+                       <a href="{{ URL::to('posts/'.$post->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">@lang("Edit")</a>
+                       <a href="{{ route('posts.show', $post->id ) }}" class="btn btn-warning pull-left" style="margin-right: 3px;">@lang("Show")</a>
+
+                    {!! Form::submit(__('Delete'), ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
+
+    <a href="{{ URL::to('posts/create') }}" class="btn btn-success">@lang("Add Post")</a>
+
+</div>
+
 @endsection

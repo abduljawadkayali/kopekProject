@@ -20,9 +20,6 @@ class CrudController extends Controller
     public function index()
     {
         $data = Crud::all();
-       toast('Your Post as been submited!','success');
-       // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
-       // alert()->html('<i>HTML</i> <u>example</u>'," You can use <b>bold text</b>, <a href='//github.com'>links</a> and other HTML tags ",'success');
         return view('crud.index', compact('data'));
     }
 
@@ -33,7 +30,6 @@ class CrudController extends Controller
      */
     public function create()
     {
-        alert()->error('ErrorAlert','Lorem ipsum dolor sit amet.');
         return view('crud.create');
     }
 
@@ -65,9 +61,8 @@ class CrudController extends Controller
         );
 
         Crud::create($form_data);
-
-        return redirect()->route('crud.index')
-            ->with('flash_message', 'Crud  Created');
+        toast(__('Crud Added Successfully'),'success');
+        return redirect()->route('crud.index');
     }
 
     /**
@@ -134,9 +129,8 @@ class CrudController extends Controller
         );
 
         Crud::whereId($id)->update($form_data);
-
-        return redirect()->route('crud.index')
-            ->with('flash_message', 'Crud  Updated');
+        toast(__('Crud Updated Successfully'),'success');
+        return redirect()->route('crud.index');
     }
 
     /**
@@ -149,8 +143,7 @@ class CrudController extends Controller
     {
         $data = Crud::findOrFail($id);
         $data->delete();
-        return redirect()->route('crud.index')
-            ->with('flash_message', 'Article,
-             '. $data->title.' created');
+        toast(__('Crud Deleted Successfully'),'info');
+        return redirect()->route('crud.index');
     }
 }

@@ -8,9 +8,6 @@
 @section('content')
 
 <div class="jumbotron text-center">
-    <h3>@lang('Title')  :  {!! $data->title !!}</h3>
-    <h2>@lang('Description')- {!! $data->description !!}</h2>
-	<br />
 	<img src="{{ URL::to('/') }}/images/{{ $data->image }}" class="img-thumbnail" />
 
 </div>

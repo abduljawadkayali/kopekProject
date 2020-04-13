@@ -6,7 +6,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row ">
-    <div class='col-lg-4 col-lg-offset-4'>
+    <div class='col-lg-6 col-lg-offset-4'>
 
         <h1><i class="fas fa-user-edit"></i> @lang("Edit") : {{$user->name}}</h1>
         <hr>
@@ -40,5 +40,4 @@
     </div>
         </div>
     </div>
-    <br>
 @endsection

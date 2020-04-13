@@ -53,9 +53,8 @@ class ImageController extends Controller
         );
 
         Image::create($form_data);
-
-        return redirect()->route('image.index')
-            ->with('flash_message', 'image  Created');
+        toast(__('Photo Added Successfully'),'success');
+        return redirect()->route('image.index');
     }
 
     /**
@@ -103,8 +102,8 @@ class ImageController extends Controller
         }
         else
         {
-            return redirect()->route('image.index')
-                ->with('flash_message', 'image not  Updated');
+            toast(__('You never changed the photo'),'info');
+            return redirect()->route('image.index');
         }
 
         $form_data = array(
@@ -112,9 +111,8 @@ class ImageController extends Controller
         );
 
         Image::whereId($id)->update($form_data);
-
-        return redirect()->route('image.index')
-            ->with('flash_message', 'image  Updated');
+        toast(__('Photo Updated Successfully'),'success');
+        return redirect()->route('image.index');
     }
 
     /**
@@ -127,7 +125,7 @@ class ImageController extends Controller
     {
         $data = Image::findOrFail($id);
         $data->delete();
-        return redirect()->route('image.index')
-            ->with('flash_message', 'Article, created');
+        toast(__('Photo Deleted Successfully'),'info');
+        return redirect()->route('image.index');
     }
 }

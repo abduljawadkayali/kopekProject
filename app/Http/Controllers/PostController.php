@@ -38,23 +38,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+
+        if ($request->status == null)
+            $request->status = "off";
+
         //Validating title and body field
         $this->validate($request, [
-            'title'=>'required|max:100',
+            'name'=>'required|max:100',
             'body' =>'required',
-            'status' =>'required'
         ]);
-
-        $title = $request['title'];
-        $status = $request['status'];
-        $body = $request['body'];
-
-        $post = Post::create($request->only('title', 'body','status'));
-
+        $form_data = array(
+            'name'       =>   $request->name,
+            'body'        =>   $request->body,
+            'status'        =>   $request->status
+        );
+        Post::create($form_data);
         //Display a successful message upon save
-        return redirect()->route('posts.index')
-            ->with('flash_message', 'Article,
-             '. $post->title.' created');
+        toast(__('Post Added Successfully'),'success');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -92,21 +93,23 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if ($request->status == null)
+            $request->status = "off";
+
+        //Validating title and body field
         $this->validate($request, [
-            'title'=>'required|max:100',
-            'body'=>'required',
-            'status' =>'required'
+            'name'=>'required|max:100',
+            'body' =>'required',
         ]);
+        $form_data = array(
+            'name'       =>   $request->name,
+            'body'        =>   $request->body,
+            'status'        =>   $request->status
+        );
+        Post::whereId($id)->update($form_data);
 
-        $post = Post::findOrFail($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->status = $request->input('status');
-        $post->save();
-
-        return redirect()->route('posts.show',
-            $post->id)->with('flash_message',
-            'Article, '. $post->title.' updated');
+        toast(__('Post Updated Successfully'),'success');
+        return redirect()->route('posts.index');
     }
 
     /**
@@ -119,9 +122,7 @@ class PostController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->delete();
-
-        return redirect()->route('posts.index')
-            ->with('flash_message',
-                'Article successfully deleted');
+        toast(__('Post Deleted Successfully'),'info');
+        return redirect()->route('posts.index');
     }
 }

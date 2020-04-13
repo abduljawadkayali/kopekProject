@@ -1,87 +1,66 @@
 @extends('layouts.Admin')
 
 @section('header')
-    <h1><i class="fas fa-user-shield"></i> Cruds</h1>
+
 @endsection
 @section('content')
-  
 
-<div class="container">
-	<div class="row">
-		<div class="col">
+    <div class="container-fluid">
+        <h1> <i class="fas fa-plus"></i>@lang("  Create New Crud")</h1>
 
-		</div>
-		<div class="col">
-
-	  </div>
-
-	</div>
      <div class="row">
 
       <div class="col-sm">
         <div class='col-lg-12 col-lg-offset-12' >
 
-            <h1>
-
-				<i class="fa fa-picture-o" aria-hidden="true"></i>
-				@lang("Add Picture")
-				</h1>
 			<hr>
 			 {{ Form::open(array('url' => 'crud', 'method' => 'POST', 'files' => true))}}
-			 @lang("page")
-			<br>
-			<br>
+			 @lang("Part")
+
 			<div class="form-group " >
 
-			{{Form::select('web_page', ['1' => 'الرئيسية',
-			 '2' => 'الروضة',
-			 '3' => 'المدرسة الابتدائية',
-			 '4' =>  'المدرسة الاعدادية',
-			 '5' =>  'المدرسة الثاثوية',
-			 '6' => 'المجلة',
-			 '7' => 'النادي الصيفي',
-			 '8' => 'المواصلات',
-			 '9' => 'المكتب الاعلامي',
-			 '10' => 'المكتب الخدمي'
+			{{Form::select('web_page', ['part1' => __('part1'),
+			 'part2' => __('part2'),
+			 'part3' => __('part3'),
+			 'part4' =>  __('part4 '),
+			 'part5' =>__('part5'),
+			 'part6' => __('part6'),
+			 'part7' => __('part7'),
 			],null ,['class' => 'browser-default custom-select'])}}
 		</div>
+
             <div class="form-group">
-                 @lang("description")
+                @lang("Title")
+                <br>
+
+                {{ Form::text('title', null, array('class' => 'form-control')) }}
+
+            </div>
+
+            <div class="form-group">
+                 @lang("Description")
 				 <br>
 
 				{{ Form::textarea('description', null, array('class' => 'form-control', 'id'=>'summary-ckeditor')) }}
 
 			</div>
 
-			<div class="form-group">
-				@lang("title")
-				<br>
+            <div class="form-group">
+            <div class="custom-file">
+                <input name="image" type="file" class="custom-file-input" id="exampleInputFile">
+                <label class="custom-file-label" for="exampleInputFile">@lang("Choose Photo")</label>
+            </div>
+            </div>
 
-			   {{ Form::text('title', null, array('class' => 'form-control')) }}
-
-		   </div>
-
-
-				{{ Form::file('image') }}
-
-			</div>
-            {{Form::submit('Add', array('class' => 'btn btn-primary')) }}
+            {{Form::submit(__('Add'), array('class' => 'btn btn-primary')) }}
             {{ Form::close() }}
          </div>
     </div>
+     </div>
 </div>
 
 
-
-@if($errors->any())
-<div class="alert alert-danger">
-	<ul>
-		@foreach($errors->all() as $error)
-		<li>{{ $error }}</li>
-		@endforeach
-	</ul>
-</div>
-@endif
+</br>
 
 @endsection
 

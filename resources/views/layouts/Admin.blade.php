@@ -104,42 +104,42 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="post" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
+                        <a href="/posts" class="nav-link">
+                            <i class="fa fa-newspaper"></i>
                             <p>@lang("Posts")</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="crud" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
+                        <a href="/crud" class="nav-link">
+                            <i class="fas fa-clone"></i>
                             <p>@lang("Cruds")</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="image" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
+                        <a href="/image" class="nav-link">
+                            <i class="fas fa-images"></i>
                             <p>@lang("Image")</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="staff" class="nav-link">
+                        <a href="/staff" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>@lang("Staff")</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="company" class="nav-link">
+                        <a href="/company" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>@lang("Company")</p>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="profile" class="nav-link">
+                        <a href="/profile" class="nav-link">
                             <i class="far fa-circle nav-icon"></i>
                             <p>@lang("Profile")</p>
                         </a>

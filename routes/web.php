@@ -32,3 +32,9 @@ Route::resource('permissions', 'PermissionController');
 Route::resource('posts', 'PostController');
 
 Route::resource('crud','CrudController');
+
+Route::resource('image','ImageController');
+
+Route::resource('staff','StaffController');
+
+Route::resource('company','CompanyController');

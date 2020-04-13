@@ -68,10 +68,8 @@ class PermissionController extends Controller
                 $r->givePermissionTo($permission);
             }
         }
-
-        return redirect()->route('permissions.index')
-            ->with('flash_message',
-                'Permission'. $permission->name.' added!');
+        toast(__('Permission Added Successfully'),'success');
+        return redirect()->route('permissions.index');
 
     }
 
@@ -114,10 +112,8 @@ class PermissionController extends Controller
         ]);
         $input = $request->all();
         $permission->fill($input)->save();
-
-        return redirect()->route('permissions.index')
-            ->with('flash_message',
-                'Permission'. $permission->name.' updated!');
+        toast(__('Permission Updated Successfully'),'success');
+        return redirect()->route('permissions.index');
 
     }
 
@@ -139,9 +135,7 @@ class PermissionController extends Controller
         }
 
         $permission->delete();
-
-        return redirect()->route('permissions.index')
-            ->with('flash_message',
-                'Permission deleted!');
+        toast(__('Permission Deleted Successfully'),'info');
+        return redirect()->route('permissions.index');
     }
 }

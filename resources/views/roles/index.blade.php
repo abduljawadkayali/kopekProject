@@ -2,23 +2,20 @@
 @extends('layouts.Admin')
 
 @section('header')
-<h1><i class="fas fa-user-shield"></i> Roles</h1>
+
 @endsection
 @section('content')
 
 <div class="col-lg-10 col-lg-offset-1">
-    
-
-    <a href="{{ route('users.index') }}" class="btn btn-default pull-right">Users</a>
-    <a href="{{ route('permissions.index') }}" class="btn btn-default pull-right">Permissions</a>
+    <h1><i class="fas fa-user-shield"></i> @lang("Roles")</h1>
     <hr>
     <div class="table-responsive">
         <table class="table table-bordered table-striped">
             <thead>
                 <tr>
-                    <th>Role</th>
-                    <th>Permissions</th>
-                    <th>Operation</th>
+                    <th>@lang("Role")</th>
+                    <th>@lang("Permissions")</th>
+                    <th>@lang("Operations")</th>
                 </tr>
             </thead>
 
@@ -30,10 +27,11 @@
 
                     <td>{{ str_replace(array('[',']','"'),'', $role->permissions()->pluck('name')) }}</td>{{-- Retrieve array of permissions associated to a role and convert to string --}}
                     <td>
-                    <a href="{{ URL::to('roles/'.$role->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">Edit</a>
+
 
                     {!! Form::open(['method' => 'DELETE', 'route' => ['roles.destroy', $role->id] ]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                        <a href="{{ URL::to('roles/'.$role->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">@lang("Edit")</a>
+                    {!! Form::submit(__('Delete'), ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}
 
                     </td>
@@ -44,7 +42,7 @@
         </table>
     </div>
 
-    <a href="{{ URL::to('roles/create') }}" class="btn btn-success">Add Role</a>
+    <a href="{{ URL::to('roles/create') }}" class="btn btn-success">@lang("Add Role")</a>
 
 </div>
 

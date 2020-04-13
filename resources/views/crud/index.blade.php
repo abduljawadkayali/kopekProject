@@ -1,13 +1,12 @@
 @extends('layouts.Admin')
 
 @section('header')
-    <h1><i class="fas fa-user-shield"></i> Cruds</h1>
+
 @endsection
 @section('content')
 
-<br>
-<br>
-<div class="container">
+<div class="container-fluid">
+ <h1> <i class="fas fa-clone"></i>@lang("  Cruds")</h1>
 	<div class="row">
 	  <div class="col">
 
@@ -23,11 +22,11 @@
 
 <table class="table table-bordered table-striped">
 	<tr>
-		<th>@lang("Image")</th>
-	<!--	<th >@lang("web_page Name")</th>-->
-		<th>@lang("description")</th>
-		<th>@lang("title")</th>
-		<th>@lang("Action")</th>
+		<th>@lang("Photo")</th>
+	<th >@lang("Part")</th>
+		<th>@lang("Description")</th>
+		<th>@lang("Title")</th>
+		<th>@lang("Operations")</th>
 	</tr>
 
 
@@ -35,7 +34,7 @@
 
 		<tr>
 			<td><img src="{{ URL::to('/') }}/images/{{ $row->image }}" class="img-thumbnail" width="150" /></td>
-			<!--	<td>{{ $row->web_page }}</td>-->
+			<td>{{ $row->web_page }}</td>
 			<td>{!! $row->description !!}</td>
 			<td>{!! $row->title !!}</td>
 			<td>
@@ -57,5 +56,7 @@
 
 </table>
 
-
+<a href="{{ URL::to('crud/create') }}" class="btn btn-success">@lang("Add Crud")</a>
+<br>
+	<br>
 @endsection

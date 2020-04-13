@@ -9,6 +9,8 @@
 
 <!-- ChartJS -->
 <script src="/plugins/chart.js/Chart.min.js"></script>
+
+<script src="/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
 <!-- Sparkline -->
 <script src="/plugins/sparklines/sparkline.js"></script>
 
@@ -29,3 +31,13 @@
 <script src="/dist/js/pages/dashboard.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+
+<script>
+    $(function () {
+
+        $("input[data-bootstrap-switch]").each(function(){
+            $(this).bootstrapSwitch('state', $(this).prop('checked'));
+        });
+
+    })
+</script>
