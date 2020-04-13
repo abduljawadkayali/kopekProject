@@ -63,9 +63,8 @@ class StaffController extends Controller
         );
 
         Staff::create($form_data);
-
-        return redirect()->route('staff.index')
-            ->with('flash_message', 'staff  Created');
+        toast(__('Staff Added Successfully'),'success');
+        return redirect()->route('staff.index');
     }
 
     /**
@@ -136,10 +135,9 @@ class StaffController extends Controller
             'phone'        =>   $request->phone
         );
 
-        Crud::whereId($id)->update($form_data);
-
-        return redirect()->route('crud.index')
-            ->with('flash_message', 'Crud  Updated');
+        Staff::whereId($id)->update($form_data);
+        toast(__('Staff Updated Successfully'),'success');
+        return redirect()->route('staff.index');
     }
 
     /**
@@ -152,7 +150,7 @@ class StaffController extends Controller
     {
         $data = Staff::findOrFail($id);
         $data->delete();
-        return redirect()->route('staff.index')
-            ->with('flash_message', 'staff deleted');
+        toast(__('Staff Deleted Successfully'),'info');
+        return redirect()->route('staff.index');
     }
 }

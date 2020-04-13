@@ -126,7 +126,7 @@
 
                     <li class="nav-item">
                         <a href="/staff" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
+                            <i class="fas fa-users"></i>
                             <p>@lang("Staff")</p>
                         </a>
                     </li>
