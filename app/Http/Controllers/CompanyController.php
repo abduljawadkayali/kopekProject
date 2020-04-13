@@ -54,9 +54,8 @@ class CompanyController extends Controller
         );
 
         Company::create($form_data);
-
-        return redirect()->route('company.index')
-            ->with('flash_message', 'Crud  Created');
+        toast(__('Company Added Successfully'),'success');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -67,9 +66,6 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $company = Company::findOrFail($id); //Find post of id = $id
-
-        return view ('company.show', compact('company'));
     }
 
     /**
@@ -80,9 +76,9 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $company = Company::findOrFail($id); //Find post of id = $id
+        $data = Company::findOrFail($id); //Find post of id = $id
         $user = User::all();
-        return view ('company.edit', compact('company', 'user'));
+        return view ('company.edit', compact('data', 'user'));
     }
 
     /**
@@ -106,9 +102,8 @@ class CompanyController extends Controller
 
 
         Company::whereId($id)->update($form_data);
-
-        return redirect()->route('company.index')
-            ->with('flash_message', 'company  Updated');
+        toast(__('Company Updated Successfully'),'success');
+        return redirect()->route('company.index');
     }
 
     /**
@@ -120,9 +115,10 @@ class CompanyController extends Controller
     public function destroy($id)
     {
         $company = Company::findOrFail($id);
+        $company->user_id = null;
+        $company->save();
         $company->delete();
-        return redirect()->route('company.index')
-            ->with('flash_message', 'Article,
-             created');
+        toast(__('Company Deleted Successfully'),'info');
+        return redirect()->route('company.index');
     }
 }

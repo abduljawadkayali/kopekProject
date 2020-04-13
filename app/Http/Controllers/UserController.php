@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Company;
 use App\User;
 use Auth;
 
@@ -138,6 +139,13 @@ class UserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id);
+       // $user->delete();
+        $company = Company::where('user_id', $id)->get()->toArray();
+        if ($company != null)
+        {
+            toast(__('Please Delete the user Company Before Deleting User'),'error');
+            return redirect()->route('company.index');
+        }
         $user->delete();
         toast(__('User informations Deleted Successfully'),'info');
         return redirect()->route('users.index');

@@ -133,8 +133,8 @@
 
                     <li class="nav-item">
                         <a href="/company" class="nav-link">
-                            <i class="far fa-circle nav-icon"></i>
-                            <p>@lang("Company")</p>
+                            <i class="fas fa-building"></i>
+                            <p>@lang("Companies")</p>
                         </a>
                     </li>
 
