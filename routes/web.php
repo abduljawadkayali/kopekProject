@@ -16,14 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
+Route::get('lang/{lang}', ['as' => 'lang.switch', 'uses' => 'LanguageController@switchLang']);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'PostController@index')->name('home');
+Auth::routes();
+
+
+
 
 Route::resource('users', 'UserController');
+
+Route::Get('profile', 'UserController@profile');
+
+Route::PUT('users.updateUser/{id}', 'UserController@updateUser')->name('users.updateUser');
+
+Route::Get('Me', 'UserController@Me');
 
 Route::resource('roles', 'RoleController');
 

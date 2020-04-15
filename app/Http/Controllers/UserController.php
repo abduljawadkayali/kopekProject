@@ -6,6 +6,7 @@ use App\User;
 use Auth;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
@@ -17,6 +18,17 @@ class UserController extends Controller
 {
     public function __construct() {
         //$this->middleware(['auth', 'isAdmin']); //isAdmin middleware lets only users with a //specific permission permission to access these resources
+    }
+
+
+    public function Me()
+    {
+        return view('users.me');
+    }
+
+    public function profile()
+    {
+        return view('users.profile');
     }
 
     /**
@@ -49,13 +61,19 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        $request->validate([
             'name'=>'required|max:120',
             'email'=>'required|email|unique:users',
             'password'=>'required|min:6|confirmed'
         ]);
+        $form_data = array(
+            'name'       =>   $request->name,
+            'email'        =>   $request->email,
+            'password' => Hash::make($request->password),
+            'image'        =>   $request->image ?? "1.png"
+        );
+        $user = User::create($form_data);
 
-        $user = User::create($request->only('email', 'name', 'password')); //Retrieving only the email and password data
 
         $roles = $request['roles']; //Retrieving the roles field
         //Checking if a role was selected
@@ -66,10 +84,6 @@ class UserController extends Controller
                 $user->assignRole($role_r); //Assigning role to user
             }
         }
-        //Redirect to the users.index view and display message
-
-
-
         toast(__('User informations Added Successfully'),'success');
         return redirect()->route('users.index');
     }
@@ -130,6 +144,74 @@ class UserController extends Controller
         return redirect()->route('users.index');
     }
 
+    public function updateUser(Request $request, $id)
+    {
+
+        if($request->password != null) {
+            $image_name = $request->hidden_image;
+            $image = $request->file('image');
+            if($image != '') {
+                $this->validate($request, [
+                    'name'=>'required|max:120',
+                    'email'=>'required|email|unique:users,email,'.$id,
+                    'image'         =>  'image|max:2048',
+                    'password'=>'required|min:6|confirmed'
+                ]);
+                $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $image_name);
+            }
+            else
+            {
+                $request->validate([
+                    'name'=>'required|max:120',
+                    'password'=>'required|min:6|confirmed',
+                    'email'=>'required|email|unique:users,email,'.$id
+                ]);
+            }
+
+            $form_data = array(
+                'name'    =>  $request->name,
+                'email'     =>  $request->email,
+                'password' => Hash::make($request->password),
+                'image'         =>  $image_name
+            );
+            //Validate name, email and password fields
+            User::whereId($id)->update($form_data);
+
+        }
+        else{
+            $image_name = $request->hidden_image;
+            $image = $request->file('image');
+            if($image != '') {
+                $this->validate($request, [
+                    'name'=>'required|max:120',
+                    'email'=>'required|email|unique:users,email,'.$id,
+                    'image'         =>  'image|max:2048'
+                ]);
+                $image_name = rand() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $image_name);
+            }
+            else
+            {
+                $request->validate([
+                    'name'=>'required|max:120',
+                    'email'=>'required|email|unique:users,email,'.$id
+                ]);
+            }
+
+            $form_data = array(
+                'name'    =>  $request->name,
+                'email'     =>  $request->email,
+                'image'         =>  $image_name
+            );
+            //Validate name, email and password fields
+            User::whereId($id)->update($form_data);
+
+        }
+
+        toast(__('User informations Updated Successfully'),'success');
+        return redirect()->action("UserController@Me");
+    }
     /**
      * Remove the specified resource from storage.
      *
