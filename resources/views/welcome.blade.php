@@ -27,6 +27,7 @@
     <!-- Google fonts -->
     <link href='https://fonts.googleapis.com/css?family=Nunito:300,400,700%7CBree+Serif&display=swap' rel='stylesheet' type='text/css'>
 
+
     <!-- Css Animations -->
     <link href="css/animate.css" rel="stylesheet" />
 
@@ -43,6 +44,17 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/prettyPhoto.css">
 
+    <!-- Switcher Only -->
+    <link rel="stylesheet" id="switcher-css" type="text/css" href="css/switcher.css" media="all" />
+
+    <!--Alternate CSS -->
+
+    <link rel="alternate stylesheet" type="text/css" href="styles/bluesky.css" title="bluesky" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="styles/redpet.css" title="redpet" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="styles/greenfun.css" title="greenfun" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="styles/cleanbrown.css" title="cleanbrown" media="all" />
+    <link rel="alternate stylesheet" type="text/css" href="styles/yellowpaws.css" title="yellowpaws" media="all" />
+
     <!-- Favicons-->
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -51,8 +63,33 @@
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
-
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
+
+
+<div class="demo_changer">
+    <div class="demo-icon">
+        <i class="fa fa-cog fa-spin fa-2x"></i>
+    </div><!-- end opener icon -->
+    <div class="form_holder">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class="predefined_styles">
+                    <h4>Choose a Color Skin</h4>
+                    <!-- MODULE #3 -->
+                    <a href="bluesky" class="styleswitch"><img src="images/icons/blue.png" alt=""></a>
+                    <a href="redpet" class="styleswitch"><img src="images/icons/red.png" alt=""></a>
+                    <a href="greenfun" class="styleswitch"><img src="images/icons/green.png" alt=""></a>
+                    <a href="cleanbrown"  class="styleswitch"><img src="images/icons/brown.png" alt=""></a>
+                    <a href="yellowpaws"  class="styleswitch"><img src="images/icons/yellow.png" alt=""></a>
+                    <!-- END MODULE #3 -->
+                </div><!-- end predefined_styles -->
+            </div><!-- end col -->
+        </div><!-- end row -->
+    </div><!-- end form_holder -->
+</div><!-- end demo_changer -->
+<!-- End Switcher -->
+
+
 <!-- Preloader -->
 <div id="preloader">
     <div class="spinner">
@@ -72,9 +109,9 @@
                 <div class="col-md-8">
                     <!-- Start Contact Info -->
                     <ul class="contact-details">
-                        <li><i class="fa fa-map-marker"></i>Pet Street - Bergen,Norway</li>
-                        <li><i class="fa fa-envelope"></i>petshop@site.com</li>
-                        <li><i class="fa fa-phone"></i>+1 (123) 456 7890</li>
+                        <li><i class="fa fa-map-marker"></i>@lang("100.yill St. - Ankara,Turkey")</li>
+                        <li><i class="fa fa-envelope"></i>info@OptimasyonX.com</li>
+                        <li><i class="fa fa-phone"></i>+90 (535) 88 40 111</li>
                     </ul><!-- End Contact Info -->
                 </div>
                 <div class="col-md-4">
@@ -93,7 +130,7 @@
             </div>
         </div>
     </div><!-- End Top bar -->
-    <div class="container">
+    <div class="container-fluid">
         <!-- navbar -->
         <div class="navbar-header page-scroll">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
@@ -103,21 +140,37 @@
             <div class="page-scroll">
                 <a class="navbar-brand" href="#page-top">
                     <!--Font Icon logo and text -->
-                    <span class="flaticon-animals-allowed"></span>Happy Paws
+                    <span class="flaticon-animals-allowed"></span>OptimasyonX
                 </a>
             </div>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
             <ul class="nav navbar-nav page-scroll">
-                <li class="active"><a href="#page-top">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#prices">Prices</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#offers">Offers</a></li>
-                <li><a href="#adoption">Adoption</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li class="active"><a href="#page-top">@lang("Home")</a></li>
+                <li><a href="#services">@lang("Services")</a></li>
+                <li><a href="#about">@lang("About")</a></li>
+                <li><a href="#prices">@lang("Prices")</a></li>
+                <li><a href="#gallery">@lang("Gallery")</a></li>
+                <li><a href="#offers">@lang("Login")</a></li>
+                <li><a href="#adoption">@lang("Register")</a></li>
+                <li><a href="#contact">@lang("Contact")</a></li>
+
+                <li>
+                    <a id="navbarDropdown" href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"  aria-expanded="false" role="button" aria-haspopup="true" v-pre>
+                        <i class="fa fa-globe"></i> {{ Config::get('languages')[App::getLocale()] }}
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach (Config::get('languages') as $lang => $language)
+                            @if ($lang != App::getLocale())
+                                <li>
+                                    <a  class="dropdown-item" href="{{ route('lang.switch', $lang) }}">{{$language}}</a>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+
             </ul>
         </div>
     </div>
@@ -138,11 +191,11 @@
                     <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                 </svg>
                 <div class="slide__text">
-                    <h1 class="slide__text-heading">Welcome to happy paws</h1>
+                    <h1 class="slide__text-heading">@lang("Welcome OptimasyonX")</h1>
                     <div class="hidden-sm hidden-xs">
-                        <p class="lead">We offer all the best quality products and services for your adorable pets.</p>
+                        <p class="lead">@lang("With OptimizationX, you will get maximum profit with minimum cost.")</p>
                         <div class="page-scroll">
-                            <a href="#services" class="btn btn-default">our services</a>
+                            <a href="#services" class="btn btn-default">@lang("our services")</a>
                         </div>
                     </div>
                 </div>
@@ -156,11 +209,11 @@
                     <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                 </svg>
                 <div class="slide__text">
-                    <h1 class="slide__text-heading">enjoy our daily offers</h1>
+                    <h1 class="slide__text-heading">@lang("With Us ...")</h1>
                     <div class="hidden-sm hidden-xs">
-                        <p class="lead">We have great offers with amazing prices every week, check it out today!</p>
+                        <p class="lead">@lang("Feed mix ration program powered by Artificial Intelligence.")</p>
                         <div class="page-scroll">
-                            <a href="#offers" class="btn btn-default">our offers</a>
+                            <a href="#offers" class="btn btn-default">@lang("Register")</a>
                         </div>
                     </div>
                 </div>
@@ -174,11 +227,11 @@
                     <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
                 </svg>
                 <div class="slide__text">
-                    <h1 class="slide__text-heading">We Take care of your pet</h1>
+                    <h1 class="slide__text-heading">@lang("Why OptimizasyonX !!")</h1>
                     <div class="hidden-sm hidden-xs">
-                        <p class="lead">Discover the amazing health services that we can offer to your pets.</p>
+                        <p class="lead">@lang("OptimizasyonX Mixed Ration Feed Program is the most affordable and flexible formulation software market in Turkey")</p>
                         <div class="page-scroll">
-                            <a href="#about" class="btn btn-default">More about us</a>
+                            <a href="#about" class="btn btn-default">@lang("More about us")</a>
                         </div>
                     </div>
                 </div>
@@ -195,16 +248,32 @@
                     <h1 class="slide__text-heading">adopt a Pet</h1>
                     <div class="hidden-sm hidden-xs">
                         <p class="lead">We have many Adorable Pets who need a home. Share the love, adopt!</p>
-                        <div class="page-scroll">
-                            <a href="#adoption" class="btn btn-default">Adopt today</a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+        <div class="slide slide-4">
+            <div class="slide__bg" style="background-image: url(../img/slide5.jpg);"></div>
+            <div class="slide__content">
+                <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
+                    <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
+                </svg>
+                <div class="slide__text">
+                    <h1 class="slide__text-heading">adopt a Pet</h1>
+                    <div class="hidden-sm hidden-xs">
+                        <p class="lead">We have many Adorable Pets who need a home. Share the love, adopt!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 <!--/ Slider ends -->
+
+
 
 <!-- Section services -->
 <section id="services" class="home-section">
@@ -1378,7 +1447,6 @@
     </div>
 </footer>
 <!-- /footer ends -->
-
 <!-- Core JavaScript Files -->
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
@@ -1392,6 +1460,10 @@
 
 <!-- Contact form -->
 <script src="js/contact.js"></script>
+
+<!-- All Scripts & Plugins -->
+<script src="js/dmss.js"></script>
+
 
 </body>
 </html>

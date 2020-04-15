@@ -2,25 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Crud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class HomeController extends Controller
 {
-    public function tr()
-    {
-        App::setLocale("tr");
-        session()->put('locale', 'tr');
-        return redirect()->back();
-    }
-
-    public function en()
-    {
-        App::setLocale("en");
-        dd(App::getLocale());
-        session()->put('locale', 'en');
-        return redirect()->back();
-    }
     /**
      * Create a new controller instance.
      *
@@ -38,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $part1 = Crud::where("web_page", "part1")->get();
+        $part2 = Crud::where("web_page", "part2")->get();
+        return view('home', compact('part1','part2'));
     }
 }
