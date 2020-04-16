@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Crud;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,7 +16,8 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth')->except(["index", "NotLogin"]);
+        $this->middleware('isAdmin')->only(["AdminDashbored"]);
     }
 
     /**
@@ -25,8 +27,41 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $part1 = Crud::where("web_page", "part1")->get();
-        $part2 = Crud::where("web_page", "part2")->get();
-        return view('home', compact('part1','part2'));
+        if (Auth::check()){
+            if (Auth::user()->hasRole('Admin'))
+                return (HomeController::AdminDashbored());
+            elseif (Auth::user()->hasRole('Prof'))
+                return (HomeController::ProfisionalDashbored());
+            elseif (Auth::user()->hasRole('Free'))
+                return (HomeController::FreeDashbored());
+            else {
+                Auth::logout();
+                return (HomeController::NotLogin());
+            }
+        }
+        else
+            return (HomeController::NotLogin());
+
+    }
+
+    public function NotLogin()
+    {
+        return redirect()->action('PagesController@welcome');
+    }
+
+    public function AdminDashbored()
+    {
+        return redirect()->route('users.index');
+    }
+
+    public function ProfisionalDashbored()
+    {
+
+        return redirect()->route('crud.create');
+    }
+    public function FreeDashbored()
+    {
+
+        return redirect()->route('posts.create');
     }
 }
