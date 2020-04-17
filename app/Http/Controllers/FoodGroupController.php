@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Food;
 use App\FoodGroup;
 use Illuminate\Http\Request;
 
@@ -111,6 +112,12 @@ class FoodGroupController extends Controller
     public function destroy($id)
     {
         $data = FoodGroup::findOrFail($id);
+        $food = Food::where('food_group_id',$id)->get()->toArray();
+        if($food != null)
+        {
+            toast(__("Please Delete the Related Food That has This Group Firstly ..."),'error');
+            return redirect()->route('food.index');
+        }
         if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
         {
             $data->delete();

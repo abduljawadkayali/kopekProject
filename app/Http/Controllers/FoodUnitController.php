@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\FoodGroup;
+use App\FoodSpecific;
 use App\FoodUnit;
 use Illuminate\Http\Request;
 
@@ -110,6 +112,12 @@ class FoodUnitController extends Controller
      */
     public function destroy($id)
     {
+        $foodspecific = FoodSpecific::where('food_unit_id',$id)->get()->toArray();
+        if($foodspecific != null)
+        {
+            toast(__("Please Delete the Related Food Specific That has This Unit Firstly ..."),'error');
+            return redirect()->route('specific.index');
+        }
         $data = FoodUnit::findOrFail($id);
         if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
         {

@@ -38,7 +38,7 @@
             <div class="col-md-3">
             <div class="form-group">
                 <label for="food_specific_id">{{__($row->name)}} -- {{__($row->FoodUnit->name)}} </label>
-                {{ Form::text('food_specific_value[]', null, array('class' => 'form-control')) }}
+                {{ Form::number('food_specific_value[]', null, array('class' => 'form-control')) }}
                 {{ Form::hidden('food_specific_id[]', $row->id, array('class' => 'form-control')) }}
             </div>
             </div>

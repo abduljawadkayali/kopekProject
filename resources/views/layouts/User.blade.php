@@ -102,9 +102,52 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-dog"></i>
+                            <p>
+                                @lang("Dogs")
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="/food" class="nav-link ">
+                                    <i class="fas fa-bone nav-icon"></i>
+                                    <p>@lang("Food")</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
                     <li class="nav-item has-treeview ">
                         <a href="#" class="nav-link ">
                             <i class="nav-icon fas fa-cookie"></i>
+                            <p>
+                                @lang("Mixtue")
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+
+                            <li class="nav-item">
+                                <a href="/unit" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Unit")</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="nav-item has-treeview ">
+                        <a href="#" class="nav-link ">
+                            <i class="nav-icon fas fa-bone"></i>
                             <p>
                                @lang("Food")
                                 <i class="right fas fa-angle-left"></i>
@@ -145,40 +188,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item">
-                        <a href="/posts" class="nav-link">
-                            <i class="fa fa-newspaper"></i>
-                            <p>@lang("Posts")</p>
-                        </a>
-                    </li>
 
-                    <li class="nav-item">
-                        <a href="/crud" class="nav-link">
-                            <i class="fas fa-clone"></i>
-                            <p>@lang("Cruds")</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/image" class="nav-link">
-                            <i class="fas fa-images"></i>
-                            <p>@lang("Image")</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/staff" class="nav-link">
-                            <i class="fas fa-users"></i>
-                            <p>@lang("Staff")</p>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="/company" class="nav-link">
-                            <i class="fas fa-building"></i>
-                            <p>@lang("Companies")</p>
-                        </a>
-                    </li>
 
                     <li class="nav-item">
                         <a href="/Me" class="nav-link">
