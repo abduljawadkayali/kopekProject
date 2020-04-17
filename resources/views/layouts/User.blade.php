@@ -102,31 +102,44 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
-                    <li class="nav-item has-treeview menu-open">
+                    <li class="nav-item has-treeview ">
                         <a href="#" class="nav-link ">
-                            <i class="nav-icon fas fa-tachometer-alt "></i>
+                            <i class="nav-icon fas fa-cookie"></i>
                             <p>
-                               @lang("Users")
+                               @lang("Food")
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
+
                             <li class="nav-item">
-                                <a href="/users" class="nav-link ">
-                                    <i class="fas fa-users nav-icon"></i>
-                                    <p>@lang("Users")</p>
+                                <a href="/food" class="nav-link ">
+                                    <i class="fas fa-bone nav-icon"></i>
+                                    <p>@lang("Food")</p>
                                 </a>
                             </li>
+
                             <li class="nav-item">
-                                <a href="/roles" class="nav-link">
-                                <i class="fas fa-user-shield"></i>
-                                    <p>@lang("Roles")</p>
+                                <a href="/group" class="nav-link ">
+                                    <i class="fas fa-object-group nav-icon"></i>
+                                    <p>@lang("Group")</p>
                                 </a>
                             </li>
+
+
                             <li class="nav-item">
-                                <a href="/permissions" class="nav-link">
-                                    <i class="fas fa-key nav-icon"></i>
-                                    <p>@lang("Permissions")</p>
+                                <a href="/specific" class="nav-link ">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>@lang("Specific")</p>
+                                </a>
+                            </li>
+
+
+
+                            <li class="nav-item">
+                                <a href="/unit" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Unit")</p>
                                 </a>
                             </li>
                         </ul>

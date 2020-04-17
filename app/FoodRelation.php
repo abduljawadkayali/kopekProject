@@ -9,7 +9,7 @@ class FoodRelation extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'food_id',  'user_id','food_specific_value_id'
+        'food_id','specific_value', 'food_specific_id'
     ];
 
     public function user()
@@ -22,8 +22,8 @@ class FoodRelation extends Model
         return $this->belongsTo('App\Food');
     }
 
-    public function FoodSpecificValue()
+    public function FoodSpecific()
     {
-        return $this->belongsTo('App\FoodSpecificValue');
+        return $this->belongsTo('App\FoodSpecific');
     }
 }

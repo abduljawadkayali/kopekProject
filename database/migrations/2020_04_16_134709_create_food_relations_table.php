@@ -17,10 +17,12 @@ class CreateFoodRelationsTable extends Migration
             $table->Increments('id');
             $table->integer('food_id')->unsigned()->index()->nullable();
             $table->foreign('food_id')->references('id')->on('foods');
-            $table->integer('food_specific_value_id')->unsigned()->index()->nullable();
-            $table->foreign('food_specific_value_id')->references('id')->on('food_specific_values');
-            $table->integer('user_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
+
+            $table->bigInteger('specific_value');
+
+            $table->integer('food_specific_id')->unsigned()->index()->nullable();
+            $table->foreign('food_specific_id')->references('id')->on('food_specifics');
+
             $table->softDeletes();
             $table->timestamps();
         });

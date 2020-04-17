@@ -47,3 +47,13 @@ Route::resource('image','ImageController');
 Route::resource('staff','StaffController');
 
 Route::resource('company','CompanyController');
+
+Route::resource('food','FoodController');
+
+Route::resource('relation','FoodRelationController');
+
+Route::resource('group','FoodGroupController');
+
+Route::resource('specific','FoodSpecificController');
+
+Route::resource('unit','FoodUnitController');

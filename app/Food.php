@@ -21,4 +21,9 @@ class Food extends Model
     {
         return $this->belongsTo('App\FoodGroup');
     }
+
+    public function Relation()
+    {
+        return $this->hasMany('App\FoodRelation');
+    }
 }
