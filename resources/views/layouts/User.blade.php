@@ -114,11 +114,20 @@
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <a href="/food" class="nav-link ">
-                                    <i class="fas fa-bone nav-icon"></i>
-                                    <p>@lang("Food")</p>
+                                <a href="/type" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Type")</p>
                                 </a>
                             </li>
+
+                            <li class="nav-item">
+                                <a href="/motion" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Motion Type")</p>
+                                </a>
+                            </li>
+
+
                         </ul>
                     </li>
 
@@ -129,16 +138,16 @@
                         <a href="#" class="nav-link ">
                             <i class="nav-icon fas fa-cookie"></i>
                             <p>
-                                @lang("Mixtue")
+                                @lang("Mixture")
                                 <i class="right fas fa-angle-left"></i>
                             </p>
                         </a>
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <a href="/unit" class="nav-link ">
-                                    <i class="fas fa-paper-plane nav-icon"></i>
-                                    <p>@lang("Unit")</p>
+                                <a href="/karma" class="nav-link ">
+                                    <i class="fas fas fa-cookie nav-icon"></i>
+                                    <p>@lang("Mixture")</p>
                                 </a>
                             </li>
                         </ul>

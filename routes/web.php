@@ -57,3 +57,9 @@ Route::resource('group','FoodGroupController');
 Route::resource('specific','FoodSpecificController');
 
 Route::resource('unit','FoodUnitController');
+
+Route::resource('karma','KarmaController');
+
+Route::resource('type','AnimalTypeController');
+
+Route::resource('motion','AnimalMotionController');

@@ -20,8 +20,6 @@ class CreateKarmaFoodsTable extends Migration
             $table->foreign('food_id')->references('id')->on('foods');
             $table->integer('karma_id')->unsigned()->index()->nullable();
             $table->foreign('karma_id')->references('id')->on('karmas');
-            $table->integer('user_id')->unsigned()->index()->nullable();
-            $table->foreign('user_id')->references('id')->on('users');
 
             $table->softDeletes();
             $table->timestamps();

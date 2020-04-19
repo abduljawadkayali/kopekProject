@@ -26,4 +26,9 @@ class Food extends Model
     {
         return $this->hasMany('App\FoodRelation');
     }
+
+    public function KarmaFood()
+    {
+        return $this->belongsTo('App\KarmaFood', 'food_id', 'id');
+    }
 }

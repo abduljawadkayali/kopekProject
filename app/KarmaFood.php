@@ -9,13 +9,8 @@ class KarmaFood extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'food_amount',  'user_id','food_id','karma_id'
+        'food_amount','food_id','karma_id'
     ];
-
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
 
     public function Food()
     {

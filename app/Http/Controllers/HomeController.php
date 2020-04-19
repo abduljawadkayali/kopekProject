@@ -35,6 +35,7 @@ class HomeController extends Controller
             elseif (Auth::user()->hasRole('Free'))
                 return (HomeController::FreeDashbored());
             else {
+                return (HomeController::ProfisionalDashbored());
                 Auth::logout();
                 return (HomeController::NotLogin());
             }

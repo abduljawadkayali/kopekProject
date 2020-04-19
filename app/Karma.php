@@ -16,4 +16,10 @@ class Karma extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function KarmaFood()
+    {
+        return $this->hasMany('App\KarmaFood', 'karma_id', 'id');
+    }
+
 }
