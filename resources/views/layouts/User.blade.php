@@ -127,6 +127,27 @@
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a href="/AnimalFoodType" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Food Type")</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/family" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Family")</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/animal" class="nav-link ">
+                                    <i class="fas fas fa-dog nav-icon"></i>
+                                    <p>@lang("Dogs")</p>
+                                </a>
+                            </li>
+
 
                         </ul>
                     </li>

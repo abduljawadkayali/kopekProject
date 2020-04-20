@@ -63,3 +63,9 @@ Route::resource('karma','KarmaController');
 Route::resource('type','AnimalTypeController');
 
 Route::resource('motion','AnimalMotionController');
+
+Route::resource('AnimalFoodType','AnimalFoodTypeController');
+
+Route::resource('family','AnimalFamilyController');
+
+Route::resource('animal','AnimalController');

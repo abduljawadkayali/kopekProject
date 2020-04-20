@@ -9,7 +9,7 @@ class AnimalNeed extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'user_id', 'animal_id',  'Enerji', 'Km', 'Hp', 'Lif', 'Kul', 'Karbonhidrat', 'Kalsiyum',
+         'animal_id',  'Enerji', 'Km', 'Hp', 'Lif', 'Kul', 'Karbonhidrat', 'Kalsiyum',
         'Fosfor', 'Ca_p', 'Meganizyum', 'Sodyum', 'Taurin', 'Yag', 'LinoliekAsit'
     ];
 
