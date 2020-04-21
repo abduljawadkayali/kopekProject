@@ -93,7 +93,7 @@
 
                 </div>
                 <div class="info">
-                    <a href="/profile" class="d-block">{{Auth::user()->name}}</a>
+                    <a href="/MeAdmin" class="d-block">{{Auth::user()->name}}</a>
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/Me" class="nav-link">
+                        <a href="/MeAdmin" class="nav-link">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <p>@lang("Profile")</p>
                         </a>

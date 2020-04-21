@@ -1,4 +1,4 @@
-@extends('layouts.User')
+@extends('layouts.Admin')
 
 @section('header')
 

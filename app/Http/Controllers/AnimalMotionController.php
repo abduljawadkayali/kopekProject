@@ -111,8 +111,22 @@ class AnimalMotionController extends Controller
     public function destroy($id)
     {
         $data = AnimalMotion::findOrFail($id);
-        $data->delete();
-        toast(__('Animal Motion Type Deleted Successfully'),'info');
-        return redirect()->route('motion.index');
+        $animal = Animal::where('animal_motion_id',$id)->get()->toArray();
+        if($animal != null)
+        {
+            toast(__("Please Delete the Related Animal That has This Animal Motion Firstly ..."),'error');
+            return redirect()->route('animal.index');
+        }
+        if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
+        {
+            $data->delete();
+            toast(__('Animal Motion Type Deleted Successfully'),'info');
+            return redirect()->route('motion.index');
+        }
+        else
+        {
+            toast(__("You can't Delete this Animal Motion ..."),'error');
+            return redirect()->route('motion.index');
+        }
     }
 }

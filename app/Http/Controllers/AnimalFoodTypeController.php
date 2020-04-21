@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Animal;
 use App\AnimalFoodType;
 use Illuminate\Http\Request;
 
@@ -110,8 +111,22 @@ class AnimalFoodTypeController extends Controller
     public function destroy($id)
     {
         $data = AnimalFoodType::findOrFail($id);
-        $data->delete();
-        toast(__('Animal Food Type Deleted Successfully'),'info');
-        return redirect()->route('AnimalFoodType.index');
+        $animal = Animal::where('animal_food_type_id',$id)->get()->toArray();
+        if($animal != null)
+        {
+            toast(__("Please Delete the Related Animal That has This Animal Food Type Firstly ..."),'error');
+            return redirect()->route('animal.index');
+        }
+        if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
+        {
+            $data->delete();
+            toast(__('Animal Food Type Deleted Successfully'),'info');
+            return redirect()->route('AnimalFoodType.index');
+        }
+        else
+        {
+            toast(__("You can't Delete this Animal Food Type ..."),'error');
+            return redirect()->route('AnimalFoodType.index');
+        }
     }
 }

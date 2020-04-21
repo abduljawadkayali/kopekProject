@@ -6,7 +6,7 @@
 @section('content')
 
     <div class="container-fluid">
-        <h1> <i class="fas fa-plus"></i> @lang("Create New Animal Type")</h1>
+        <h1> <i class="fas fa-plus"></i> @lang("Create New Animal Age Category")</h1>
 
      <div class="row">
 
@@ -17,7 +17,7 @@
 			 {{ Form::open(array('url' => 'type', 'method' => 'POST', 'files' => true))}}
 
             <div class="form-group">
-                <label class="col-md-4">@lang("Animal Type")</label>
+                <label class="col-md-4">@lang("Animal Age Category")</label>
                 <br>
 
                 {{ Form::text('name', null, array('class' => 'form-control')) }}

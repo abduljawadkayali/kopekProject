@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Animal;
 use App\AnimalFamily;
 use Illuminate\Http\Request;
 
@@ -136,8 +137,22 @@ class AnimalFamilyController extends Controller
     public function destroy($id)
     {
         $data = AnimalFamily::findOrFail($id);
-        $data->delete();
-        toast(__('Animal Family Deleted Successfully'),'info');
-        return redirect()->route('family.index');
+        $animal = Animal::where('animal_motion_id',$id)->get()->toArray();
+        if($animal != null)
+        {
+            toast(__("Please Delete the Related Animal That has This Animal Family Firstly ..."),'error');
+            return redirect()->route('animal.index');
+        }
+        if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
+        {
+            $data->delete();
+            toast(__('Animal Family Deleted Successfully'),'info');
+            return redirect()->route('family.index');
+        }
+        else
+        {
+            toast(__("You can't Delete this Animal Family ..."),'error');
+            return redirect()->route('family.index');
+        }
     }
 }

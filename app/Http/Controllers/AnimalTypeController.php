@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Animal;
 use App\AnimalType;
 use Illuminate\Http\Request;
 
@@ -45,7 +46,7 @@ class AnimalTypeController extends Controller
         );
 
         AnimalType::create($form_data);
-        toast(__('Animal Type Added Successfully'),'success');
+        toast(__('Animal Age Category Added Successfully'),'success');
         return redirect()->route('type.index');
     }
 
@@ -75,7 +76,7 @@ class AnimalTypeController extends Controller
         }
         else
         {
-            toast(__("You can't Update this Animal Type It's Public Please Create New One for You"),'error');
+            toast(__("You can't Update this Animal Age Category It's Public Please Create New One for You"),'error');
             return redirect()->route('type.create');
         }
     }
@@ -97,7 +98,7 @@ class AnimalTypeController extends Controller
             'user_id'        =>  auth()->user()->id
         );
         AnimalType::whereId($id)->update($form_data);
-        toast(__('Animal Type Updated Successfully'),'success');
+        toast(__('Animal Age Category Updated Successfully'),'success');
         return redirect()->route('type.index');
     }
 
@@ -110,8 +111,23 @@ class AnimalTypeController extends Controller
     public function destroy($id)
     {
         $data = AnimalType::findOrFail($id);
-        $data->delete();
-        toast(__('Animal Type Deleted Successfully'),'info');
-        return redirect()->route('type.index');
+        $animal = Animal::where('animal_type_id',$id)->get()->toArray();
+        if($animal != null)
+        {
+            toast(__("Please Delete the Related Animal That has This Age Category Firstly ..."),'error');
+            return redirect()->route('animal.index');
+        }
+        if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
+        {
+            $data->delete();
+            toast(__('Animal Age Category Deleted Successfully'),'info');
+            return redirect()->route('type.index');
+        }
+        else
+        {
+            toast(__("You can't Delete this Age Category ..."),'error');
+            return redirect()->route('type.index');
+        }
+
     }
 }

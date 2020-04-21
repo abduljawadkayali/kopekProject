@@ -1,4 +1,4 @@
-@extends('layouts.User')
+@extends('layouts.Admin')
 
 @section('header')
 
@@ -22,7 +22,7 @@
 
 
     <div>
-        <a href = "/profile"  class="btn btn-info pull-left" style="margin-right: 3px;">@lang("Edit")</a>
+        <a href = "/profileAdmin"  class="btn btn-info pull-left" style="margin-right: 3px;">@lang("Edit")</a>
     </div>
             </div>
         </div>

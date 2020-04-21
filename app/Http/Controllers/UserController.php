@@ -21,6 +21,11 @@ class UserController extends Controller
     }
 
 
+    public function MeAdmin()
+    {
+        return view('users.meAdmin');
+    }
+
     public function Me()
     {
         return view('users.me');
@@ -29,6 +34,11 @@ class UserController extends Controller
     public function profile()
     {
         return view('users.profile');
+    }
+
+    public function profileAdmin()
+    {
+        return view('users.profileAdmin');
     }
 
     /**
@@ -70,7 +80,8 @@ class UserController extends Controller
             'name'       =>   $request->name,
             'email'        =>   $request->email,
             'password' => Hash::make($request->password),
-            'image'        =>   $request->image ?? "1.png"
+            'image'        =>   $request->image ?? "1.png",
+            'user_id'        =>  auth()->user()->id
         );
         $user = User::create($form_data);
 
@@ -130,9 +141,13 @@ class UserController extends Controller
             'name'=>'required|max:120',
             'email'=>'required|email|unique:users,email,'.$id
         ]);
-        $input = $request->only(['name', 'email']); //Retreive the name, email and password fields
+        $form_data = array(
+            'name'       =>   $request->name,
+            'email'       =>   $request->email,
+            'user_id'        =>  auth()->user()->id
+        );
         $roles = $request['roles']; //Retreive all roles
-        $user->fill($input)->save();
+        $user->fill($form_data)->save();
 
         if (isset($roles)) {
             $user->roles()->sync($roles);  //If one or more role is selected associate user to roles
@@ -210,7 +225,7 @@ class UserController extends Controller
         }
 
         toast(__('User informations Updated Successfully'),'success');
-        return redirect()->action("UserController@Me");
+        return redirect()->back();
     }
     /**
      * Remove the specified resource from storage.

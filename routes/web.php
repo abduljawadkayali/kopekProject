@@ -28,11 +28,17 @@ Auth::routes();
 
 Route::resource('users', 'UserController');
 
+Route::resource('kullancilar', 'kullancilarController');
+
 Route::Get('profile', 'UserController@profile');
+
+Route::Get('profileAdmin', 'UserController@profileAdmin');
 
 Route::PUT('users.updateUser/{id}', 'UserController@updateUser')->name('users.updateUser');
 
 Route::Get('Me', 'UserController@Me');
+
+Route::Get('MeAdmin', 'UserController@MeAdmin');
 
 Route::resource('roles', 'RoleController');
 
@@ -47,6 +53,8 @@ Route::resource('image','ImageController');
 Route::resource('staff','StaffController');
 
 Route::resource('company','CompanyController');
+
+Route::resource('firma','FirmaController');
 
 Route::resource('food','FoodController');
 

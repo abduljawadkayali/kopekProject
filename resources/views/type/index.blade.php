@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="container-fluid">
- <h1> <i class="fas fa-list"></i> @lang("Animal Types")</h1>
+ <h1> <i class="fas fa-list"></i> @lang("Animal Age Categories")</h1>
  <hr>
 	<br>
 <div>
@@ -15,7 +15,7 @@
 
 <table class="table table-bordered table-striped">
 	<tr>
-		<th>@lang("Animal Type")</th>
+		<th>@lang("Age Category")</th>
 	<th >@lang("Created By")</th>
 		<th>@lang("Operations")</th>
 	</tr>
@@ -44,7 +44,7 @@
 
 </table>
 
-<a href="{{ URL::to('type/create') }}" class="btn btn-success">@lang("Add Animal Type")</a>
+<a href="{{ URL::to('type/create') }}" class="btn btn-success">@lang("Add Animal Age Category")</a>
 <br>
 	<br>
 @endsection

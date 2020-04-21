@@ -93,7 +93,7 @@
 
                 </div>
                 <div class="info">
-                    <a href="/profile" class="d-block">{{Auth::user()->name}}</a>
+                    <a href="/Me" class="d-block">{{Auth::user()->name}}</a>
                 </div>
             </div>
 
@@ -114,41 +114,39 @@
                         <ul class="nav nav-treeview">
 
                             <li class="nav-item">
-                                <a href="/type" class="nav-link ">
-                                    <i class="fas fa-paper-plane nav-icon"></i>
-                                    <p>@lang("Type")</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="/motion" class="nav-link ">
-                                    <i class="fas fa-paper-plane nav-icon"></i>
-                                    <p>@lang("Motion Type")</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="/AnimalFoodType" class="nav-link ">
-                                    <i class="fas fa-paper-plane nav-icon"></i>
-                                    <p>@lang("Food Type")</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
-                                <a href="/family" class="nav-link ">
-                                    <i class="fas fa-paper-plane nav-icon"></i>
-                                    <p>@lang("Family")</p>
-                                </a>
-                            </li>
-
-                            <li class="nav-item">
                                 <a href="/animal" class="nav-link ">
                                     <i class="fas fas fa-dog nav-icon"></i>
                                     <p>@lang("Dogs")</p>
                                 </a>
                             </li>
 
+                            <li class="nav-item">
+                                <a href="/type" class="nav-link ">
+                                    <i class="fas fa-paper-plane nav-icon"></i>
+                                    <p>@lang("Age Category")</p>
+                                </a>
+                            </li>
 
+                            <li class="nav-item">
+                                <a href="/motion" class="nav-link ">
+                                    <i class="fas fa-angle-double-right nav-icon"></i>
+                                    <p>@lang("Motion Type")</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/AnimalFoodType" class="nav-link ">
+                                    <i class="fas fa-align-left nav-icon"></i>
+                                    <p>@lang("Food Type")</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/family" class="nav-link ">
+                                    <i class="fas fa-share-alt nav-icon"></i>
+                                    <p>@lang("Family")</p>
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
@@ -224,6 +222,20 @@
                         <a href="/Me" class="nav-link">
                             <i class="fa fa-user" aria-hidden="true"></i>
                             <p>@lang("Profile")</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/kullancilar" class="nav-link ">
+                            <i class="fas fa-users nav-icon"></i>
+                            <p>@lang("Users")</p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/firma" class="nav-link">
+                            <i class="fas fa-building"></i>
+                            <p>@lang("Companies")</p>
                         </a>
                     </li>
 
