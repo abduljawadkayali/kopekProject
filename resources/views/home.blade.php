@@ -320,33 +320,47 @@
     <div class="container">
         <div class="row">
             <div class="text-center wow fadeInUp" data-wow-delay="0.2s">
-                <div class="col-md-3 col-sm-6 res-margin">
+                <div class="col-md-2 col-sm-6 res-margin">
                     <!-- Number 1 -->
-                    <div class="numscroller" data-slno='1' data-min='0' data-max='180' data-delay='20' data-increment="19">0</div>
+                    <div class="numscroller" data-slno='1' data-min='0' data-max="{{$CompanyCount}}" data-delay='20' data-increment="19">0</div>
                     <hr>
-                    <h5>Customers</h5>
+                    <h5>@lang("Companies")</h5>
                 </div>
-                <div class="col-md-3 col-sm-6 res-margin">
+
+                <div class="col-md-2 col-sm-6">
+                    <!-- Number 5 -->
+                    <div class="numscroller" data-slno='1' data-min='0' data-max="{{$SolutinCount}}" data-delay='10' data-increment="9">0</div>
+                    <hr>
+                    <h5>@lang("Solutions")</h5>
+                </div>
+
+                <div class="col-md-4 col-sm-6 res-margin">
                     <!-- Number 2 -->
-                    <div class="numscroller" data-slno='1' data-min='0' data-max='16' data-delay='10' data-increment="9">0</div>
+                    <div class="numscroller" data-slno='1' data-min='0' data-max="{{$UserCount}}" data-delay='10' data-increment="9">0</div>
                     <hr>
-                    <h5>Professionals</h5>
+                    <h5>@lang("User Number")</h5>
                 </div>
-                <div class="col-md-3 col-sm-6 res-margin">
+
+
+
+                <div class="col-md-2 col-sm-6 res-margin">
                     <!-- Number 3 -->
-                    <div class="numscroller" data-slno='1' data-min='0' data-max='67' data-delay='20' data-increment="19">0</div>
+                    <div class="numscroller" data-slno='1' data-min='0' data-max="{{$FoodCount}}" data-delay='20' data-increment="19">0</div>
                     <hr>
-                    <h5>Pets Hosted</h5>
+                    <h5>@lang("Foods")</h5>
                 </div>
-                <div class="col-md-3 col-sm-6">
+                <div class="col-md-2 col-sm-6">
                     <!-- Number 4 -->
-                    <div class="numscroller" data-slno='1' data-min='0' data-max='50' data-delay='10' data-increment="9">0</div>
+                    <div class="numscroller" data-slno='1' data-min='0' data-max="{{$KarmaCount}}" data-delay='10' data-increment="9">0</div>
                     <hr>
-                    <h5>Products</h5>
+                    <h5>@lang("Mixtures")</h5>
                 </div>
-            </div>
+
+
+
         </div>
-    </div>
+        </div>
+
 </section>
 <!-- Section Ends-->
 
@@ -364,8 +378,8 @@
             <!-- Navigation -->
             <ul class="nav nav-pills">
                 <li class="active"><a href="#pane1" data-toggle="tab">Our Clinic</a></li>
-                <li><a href="#pane2" data-toggle="tab">Our Philosophy</a></li>
-                <li><a href="#pane3" data-toggle="tab">Our Team</a></li>
+
+                <li><a href="#pane3" data-toggle="tab">@lang("Our Team")</a></li>
             </ul>
         </div>
     </div>
@@ -418,107 +432,33 @@
                 </div>
                 <!-- Panel 1 ends -->
 
-                <!-- Panel 2 -->
-                <div id="pane2" class="paneltab tab-pane fade">
-                    <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12 res-margin">
-                            <h3>Our Philosophy</h3>
-                            <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh imperdiet interdum. Sed in lobortis nisl Phasellus ultrices gravida massa luctus ornare ellen tesque turpis lectus, placerat a ultricies a, posuere a nibh fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vestibulum orci eget, viverra elit. Aliquam erat volutpat. Phasellus ac sodales felis tiam non metus aliquam eros accumsan mollis eget vitae tellusm.
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <!-- Responsive video -->
-                            <div class="embed-responsive embed-responsive-16by9">
-                                <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/deN3nt3Sdhc"></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div><!-- / Panel 2 ends -->
+
 
                 <!-- Panel  3 -->
                 <div id="pane3" class="paneltab tab-pane fade text-center">
                     <div class="row">
-                        <h3>Meet our Team</h3>
+                        <h3>@lang("Meet our Team")</h3>
                         <!-- Item 1 -->
                         <div class="team">
+                            @foreach($staffs as $staff)
                             <div class="col-md-3 col-sm-6">
                                 <div class="img-wrapper">
-                                    <img src="img/team1.jpg" alt="" class="img-responsive"/>
+                                    <img src="{{ URL::to('/') }}/images/{{ $staff->image }}" class="img-responsive" />
                                 </div>
                                 <!-- Caption -->
                                 <div class="caption-team">
-                                    <h5>Luane Silva </h5>
-                                    <span>Veterinarian</span>
-                                    <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh imperdiet interdum.</p>
+                                    <h5>{{$staff->name}} </h5>
+                                    <span>{{$staff->job}}</span>
+                                    <p>{{$staff->description}}.</p>
                                 </div>
                                 <!-- Social icons -->
                                 <div class="social-media margin">
-                                    <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                                    <a href="#" title=""><i class="fa fa-instagram"></i></a>
+                                    <a href="https://wa.me/{{ $staff->phone }}" title=""><i class="fa fa-whatsapp"></i></a>
+                                    <a href=" mailto:{!! $staff->mail !!}" title=""><i class="fa fa-envelope"></i></a>
                                 </div>
                             </div>
-                            <!-- Item 2 -->
-                            <div class="col-md-3 col-sm-6">
-                                <div class="img-wrapper">
-                                    <img src="img/team2.jpg" alt="" class="img-responsive"/>
-                                </div>
-                                <!-- Caption -->
-                                <div class="caption-team">
-                                    <h5>John Suen</h5>
-                                    <span>Caretaker</span>
-                                    <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh imperdiet interdum.</p>
-                                </div>
-                                <!-- Social icons -->
-                                <div class="social-media margin">
-                                    <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                                    <a href="#" title=""><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <!-- item 3 -->
-                            <div class="col-md-3 col-sm-6">
-                                <div class="img-wrapper">
-                                    <img src="img/team3.jpg" alt="" class="img-responsive"/>
-                                </div>
-                                <!-- Caption -->
-                                <div class="caption-team">
-                                    <h5>Nancy May</h5>
-                                    <span>Specialist</span>
-                                    <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh imperdiet interdum.</p>
-                                </div>
-                                <!-- Social icons -->
-                                <div class="social-media margin">
-                                    <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                                    <a href="#" title=""><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
-                            <!-- Item 4 -->
-                            <div class="col-md-3 col-sm-6">
-                                <div class="img-wrapper">
-                                    <img src="img/team4.jpg" alt="" class="img-responsive"/>
-                                </div>
-                                <!-- Caption -->
-                                <div class="caption-team">
-                                    <h5>Amelie Plin</h5>
-                                    <span>Veterinarian</span>
-                                    <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh imperdiet interdum.</p>
-                                </div>
-                                <!-- Social icons -->
-                                <div class="social-media">
-                                    <a href="#" title=""><i class="fa fa-twitter"></i></a>
-                                    <a href="#" title=""><i class="fa fa-facebook"></i></a>
-                                    <a href="#" title=""><i class="fa fa-linkedin"></i></a>
-                                    <a href="#" title=""><i class="fa fa-pinterest"></i></a>
-                                    <a href="#" title=""><i class="fa fa-instagram"></i></a>
-                                </div>
-                            </div>
+                            @endforeach
+
                         </div>
                     </div><!-- /container-->
                 </div><!-- /panel 3 ends -->

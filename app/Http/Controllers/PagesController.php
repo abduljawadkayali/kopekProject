@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
 use App\Crud;
+use App\Food;
+use App\Karma;
+use App\Solution;
+use App\Staff;
+use App\User;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -21,7 +27,13 @@ class PagesController extends Controller
 
         $part1 = Crud::where("web_page", "part1")->get();
         $part2 = Crud::where("web_page", "part2")->get();
-        return view('home', compact('part1','part2'));
+        $CompanyCount = Company::count();
+        $UserCount = User::count();
+        $FoodCount = Food::count();
+        $KarmaCount = Karma::count();
+        $SolutinCount = Solution::count();
+        $staffs = Staff::all();
+        return view('home', compact('staffs','part1','part2','CompanyCount','UserCount','FoodCount','KarmaCount','SolutinCount'));
     }
 
 
