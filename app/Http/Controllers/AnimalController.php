@@ -8,6 +8,7 @@ use App\AnimalFoodType;
 use App\AnimalMotion;
 use App\AnimalNeed;
 use App\AnimalType;
+use App\Solution;
 use Illuminate\Http\Request;
 
 class AnimalController extends Controller
@@ -525,10 +526,25 @@ class AnimalController extends Controller
     public function destroy($id)
     {
         $data = Animal::findOrFail($id);
-        $AnimalNeed = AnimalNeed::where('animal_id',$id)->first();
-        $data->delete();
-        $AnimalNeed->first()->delete();
-        toast(__('Dog Deleted Successfully'),'info');
-        return redirect()->route('animal.index');
+        $solution = Solution::where('animal_id',$id)->get()->toArray();
+        if($solution != null)
+        {
+            toast(__("Please Delete the Related Solution That has This Dog  Firstly ..."),'error');
+            return redirect()->route('solution.index');
+        }
+        if(auth()->user()->id == 1 || auth()->user()->id == $data->user_id)
+        {
+            $AnimalNeed = AnimalNeed::where('animal_id',$id)->first();
+            $data->delete();
+            $AnimalNeed->first()->delete();
+            toast(__('Dog Deleted Successfully'),'info');
+            return redirect()->route('animal.index');
+        }
+        else
+        {
+            toast(__("You can't Delete this Dog ..."),'error');
+            return redirect()->route('animal.index');
+        }
+
     }
 }

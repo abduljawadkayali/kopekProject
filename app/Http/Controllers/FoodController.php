@@ -102,7 +102,6 @@ class FoodController extends Controller
         {
             toast(__("You can't Update this Food It's Public Please Create New One for You"),'error');
             return redirect()->route('food.create');
-
         }
     }
 

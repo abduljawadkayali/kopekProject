@@ -77,3 +77,5 @@ Route::resource('AnimalFoodType','AnimalFoodTypeController');
 Route::resource('family','AnimalFamilyController');
 
 Route::resource('animal','AnimalController');
+
+Route::resource('solution','SolutionController');

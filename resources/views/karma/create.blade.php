@@ -26,7 +26,7 @@
             <div class="col-md-3">
             <div class="form-group">
                 <label for="food_specific_id">{{__($row->name)}} </label>
-                {{ Form::number('food[]', null, array('class' => 'form-control')) }}
+                {{ Form::number('food[]', null, ['class' => 'form-control','step'=>'any']) }}
                 {{ Form::hidden('food_id[]', $row->id, array('class' => 'form-control')) }}
             </div>
             </div>

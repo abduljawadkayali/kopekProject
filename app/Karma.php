@@ -21,5 +21,9 @@ class Karma extends Model
     {
         return $this->hasMany('App\KarmaFood', 'karma_id', 'id');
     }
+    public function KarmaSpecificValue()
+    {
+        return $this->hasMany('App\KarmaSpecificValue');
+    }
 
 }

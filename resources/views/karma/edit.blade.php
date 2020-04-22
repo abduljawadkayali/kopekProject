@@ -33,7 +33,7 @@
                 @if($KarmaFoods[$k]->food_id == $row->id)
                     <div class="form-group">
                         <label for="food_specific_id">@lang("Food")  : {{__($row->name)}} </label>
-                        {{ Form::number('food[]', $KarmaFoods[$k]->food_amount, array('class' => 'form-control')) }}
+                        {{ Form::number('food[]', $KarmaFoods[$k]->food_amount, ['class' => 'form-control','step'=>'any']) }}
                         {{ Form::hidden('food_id[]', $row->id, array('class' => 'form-control')) }}
                         @php
                             $k= $k+1;

@@ -22,7 +22,7 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="/home" class="nav-link">@lang("Home")</a>
+                <a href="/solution" class="nav-link">@lang("Home")</a>
             </li>
         </ul>
     @include('sweetalert::alert')
@@ -101,7 +101,17 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
+                                    <i class="fas fa-tasks"></i><i class="fas fa-poll-h"></i>
                          with font-awesome or any other icon font library -->
+
+
+                    <li class="nav-item">
+                        <a href="/solution" class="nav-link ">
+                            <i class="fas fa-poll-h nav-icon"></i>
+                            <p>@lang("Solutions")</p>
+                        </a>
+                    </li>
+
 
                     <li class="nav-item has-treeview ">
                         <a href="#" class="nav-link ">
@@ -115,7 +125,7 @@
 
                             <li class="nav-item">
                                 <a href="/animal" class="nav-link ">
-                                    <i class="fas fas fa-dog nav-icon"></i>
+                                    <i class="fas fa-dog nav-icon"></i>
                                     <p>@lang("Dogs")</p>
                                 </a>
                             </li>
