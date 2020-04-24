@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="col-lg-10 col-lg-offset-1">
+<div class="col-lg-12 col-lg-offset-1">
     <h1><i class="fa fa-newspaper"></i>
     @lang("Posts")
 </h1>
@@ -25,7 +25,7 @@
                 <tr>
                     <td>{{ $post->name }}</td>
                       <td>{{ \Illuminate\Support\Str::limit($post->body, 50, '...') }}</td>
-                        <td>{{ $post->status }}</td>
+                        <td>{{ __($post->status) }}</td>
                     <td>
 
 

@@ -9,9 +9,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Page title -->
-    <title>Happy Paws - Pet One Page HTML5 Theme</title>
+    <title>OptimasyonX</title>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shim and Respond.js I    E8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="js/html5shiv.min.js"></script>
     <script src="js/respond.js"></script>
@@ -64,8 +64,13 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
-
-
+@include('sweetalert::alert')
+@if(Session::has('flash_message'))
+    <div class="container">
+        <div class="alert alert-success"><em> {!! session('flash_message') !!}</em>
+        </div>
+    </div>
+@endif
 <div class="demo_changer">
     <div class="demo-icon">
         <i class="fa fa-cog fa-spin fa-2x"></i>
@@ -74,7 +79,7 @@
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class="predefined_styles">
-                    <h4>Choose a Color Skin</h4>
+                    <h4>@lang("Choose a Color Skin")</h4>
                     <!-- MODULE #3 -->
                     <a href="bluesky" class="styleswitch"><img src="images/icons/blue.png" alt=""></a>
                     <a href="redpet" class="styleswitch"><img src="images/icons/red.png" alt=""></a>
@@ -152,8 +157,8 @@
                 <li><a href="#about">@lang("About")</a></li>
                 <li><a href="#prices">@lang("Prices")</a></li>
                 <li><a href="#gallery">@lang("Gallery")</a></li>
-                <li><a href="#offers">@lang("Login")</a></li>
-                <li><a href="#adoption">@lang("Register")</a></li>
+                <li><a href="#register">@lang("Register")</a></li>
+                <li><a href="#login">@lang("Login")</a></li>
                 <li><a href="#contact">@lang("Contact")</a></li>
 
                 <li>
@@ -213,7 +218,7 @@
                     <div class="hidden-sm hidden-xs">
                         <p class="lead">@lang("Feed mix ration program powered by Artificial Intelligence.")</p>
                         <div class="page-scroll">
-                            <a href="#offers" class="btn btn-default">@lang("Register")</a>
+                            <a href="#register" class="btn btn-default">@lang("Register")</a>
                         </div>
                     </div>
                 </div>
@@ -237,21 +242,7 @@
                 </div>
             </div>
         </div>
-        <!-- Slide 4-->
-        <div class="slide slide-3">
-            <div class="slide__bg"></div>
-            <div class="slide__content">
-                <svg class="slide__overlay" viewBox="0 0 720 405" preserveAspectRatio="xMaxYMax slice">
-                    <path class="slide__overlay-path" d="M0,0 150,0 500,405 0,405" />
-                </svg>
-                <div class="slide__text">
-                    <h1 class="slide__text-heading">adopt a Pet</h1>
-                    <div class="hidden-sm hidden-xs">
-                        <p class="lead">We have many Adorable Pets who need a home. Share the love, adopt!</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         @php
         $i =3;
         @endphp
@@ -313,7 +304,7 @@
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section Heading -->
         <div class="section-heading">
-            <h2>Our Stats</h2>
+            <h2>@lang("Our Stats")</h2>
             <div class="hr"></div>
         </div>
     </div>
@@ -369,7 +360,7 @@
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section Heading -->
         <div class="section-heading">
-            <h2>About us</h2>
+            <h2>@lang("About us")</h2>
             <div class="hr"></div>
         </div>
     </div>
@@ -377,9 +368,9 @@
         <div class="centered-pills">
             <!-- Navigation -->
             <ul class="nav nav-pills">
-                <li class="active"><a href="#pane1" data-toggle="tab">Our Clinic</a></li>
+                <li class="active"><a href="#pane1" data-toggle="tab">@lang("OptimasyonX")</a></li>
 
-                <li><a href="#pane3" data-toggle="tab">@lang("Our Team")</a></li>
+                <li ><a href="#pane3" data-toggle="tab">@lang("Our Team")</a></li>
             </ul>
         </div>
     </div>
@@ -391,43 +382,47 @@
                 <div id="pane1" class="paneltab tab-pane fade active in">
                     <div class="row">
                         <div class="col-md-12 col-sm-12">
-                            <div class="col-lg-7 col-md-6 col-sm-12 res-margin wow fadeInRight" data-wow-delay="0.2s">
-                                <h3>We take care of your best friend</h3>
-                                <p>Interdum donec eget metus auguen unc vel mauris ultricies, vest ao ibulum orci eget,  blandit quam elit, eu imperdiet neque semper lorem ipsum dolores viverra elit Aliquam erat volutpat phase llus ac sodales felis tiam non metus aliquam eros accumsan mollis eget vitae tellusm.
-                                    Sed in lobortis nisl Phasellus ultrices gravida massa luctus ornare. Aliquam erat volutpat phas ellus sodales felis tiam non metus aliquam eros accumsan mollis eget vitae tellusm Pellentesque turpis lectus, placerat a ultricies a, posuere lorem ipsuet.</p>
+
+                            <div class="col-lg-5 col-md-6 col-sm-12 res-margin wow fadeInRight" data-wow-delay="0.2s">
+                                <ul>
+                                    <h3>@lang("Why OptimasyonX !!")</h3>
+
+                                    <label><li>@lang("The OptimasyonX Feed Mixing Ration Program assists you on how to produce the food you want to produce in the most optimal way with the raw materials you have.")</li></label><br>
+                                    <label><li>@lang("Mixed Ration Feed optimasyonX program is the most affordable and flexible formulation software market in Turkey. You can get unlimited access to the program with an annual payment of 3600 TL (Tax included).")</li></label><br>
+                                    <label><li>@lang("The optimasyonX Feed Mixing Ration Program has all the features you need, as well as an agile team that will bring the additional features you request to the program in a very short time if deemed appropriate.")</li></label><br>
+                                    <label><li>@lang("100% native software")</li></label><br>
+
+                                </ul>
+
                             </div>
-                            <div class="col-lg-5 col-md-6 col-sm-12 wow fadeInLeft" data-wow-delay="0.2s">
-                                <img src="img/about.png" alt="" class="img-responsive"/>
+                            <div class="col-lg-1">
                             </div>
+                            <div class="col-lg-5 col-md-12 col-sm-12 res-margin wow fadeInRight" data-wow-delay="0.2s">
+                                <ul>
+                                    <h3>@lang("Specifics")</h3>
+
+                                    <label><li>@lang("24/7 Access over the Internet")</li></label><br>
+                                    <label><li>@lang("Access from Computer, Tablet and Mobile Phone")</li></label><br>
+                                    <label><li>@lang("Reporting as Excel,PDF")</li></label><br>
+                                    <label><li>@lang("No additional charges")</li></label><br>
+                                    <label><li>@lang("The most affordable product on the market")</li></label><br>
+                                    <label><li>@lang("No update and compatibility problems")</li></label><br>
+                                    <label><li>@lang("Ready-to-use database")</li></label><br>
+
+                                    <label><li>@lang("Changing raw material, price of raw materials, minimum and maximum amount of raw materials contents on the solution screen")</li></label><br>
+
+                                    <label><li>@lang("Change Mixture values on solution screen")</li></label><br>
+                                    <label><li>@lang("Analysis of whether raw materials are used to the maximum")</li></label><br>
+                                    <label><li>@lang("Demonstration of situations that disrupt the solution")</li></label><br>
+                                    <label><li>@lang("When the solution is not suitable, giving the proposal for harmonization")</li></label><br>
+                                    <label><li>@lang("Producing solutions according to the raw materials in stock")</li></label><br>
+
+                                </ul>
+                            </div>
+
+
                         </div>
-                        <!-- icons -->
-                        <div class="col-xs-12 col-md-4 col-lg-4">
-                            <div class="box">
-                                <div class="icon">
-                                    <div class="image"><span class="flaticon-pet22"></span></div>
-                                    <h5>High Tech Clinic</h5>
-                                    <p>Suspendisse blandit quam elit, eu imperdiet neque semper lorem ipsum dolores.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-lg-4">
-                            <div class="box">
-                                <div class="icon">
-                                    <div class="image"><span class="flaticon-dog65"></span></div>
-                                    <h5>Amazing Support</h5>
-                                    <p>Suspendisse blandit quam elit, eu imperdiet neque semper lorem ipsum dolores.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-12 col-md-4 col-lg-4">
-                            <div class="box">
-                                <div class="icon">
-                                    <div class="image"><span class="flaticon-pets19"></span></div>
-                                    <h5>Award Winner</h5>
-                                    <p>Suspendisse blandit quam elit, eu imperdiet neque semper lorem ipsum dolores.</p>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <!-- Panel 1 ends -->
@@ -473,7 +468,7 @@
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section Heading -->
         <div class="section-heading">
-            <h2>What Our Clients Say</h2>
+            <h2>@lang("What Our Clients Say")</h2>
             <div class="hr"></div>
         </div>
     </div>
@@ -481,49 +476,22 @@
         <div class="row wow fadeInLeft" data-wow-delay="0.2s">
             <div id="owl-testimonials" class="owl-carousel">
                 <!-- testimonial 1-->
+                @foreach( $posts as $post)
                 <div class="col-md-10 col-centered">
                     <blockquote>
                         <div class="col-md-2 col-md-offset-5 col-sm-12 col-xs-12 text-center">
                             <!-- testimonial image-->
-                            <img src="img/testimonial1.jpg" alt="" class="res-margin img-responsive img-circle">
-                        </div>
-                        <div class="col-md-10 col-md-offset-1 quote-test">
-                            <!-- quote -->
-                            <p>Lotam tempore optio doloremque laboriosam quas, quos eaque molestias odio aut eius animi Suspendisse a elementum anteu imperdiet et maecenas eu eros non nibh aliquet iaculis..</p>
-                            <small>Joanna Vilken, TV Star</small>
-                        </div>
-                    </blockquote>
-                </div>
 
-                <!-- testimonial 2-->
-                <div class="col-md-10 col-centered">
-                    <blockquote>
-                        <div class="col-md-2 col-md-offset-5 col-sm-12 col-xs-12 text-center">
-                            <!-- testimonial image-->
-                            <img src="img/testimonial2.jpg" alt="" class="res-margin img-responsive img-circle">
                         </div>
                         <div class="col-md-10 col-md-offset-1 quote-test">
                             <!-- quote -->
-                            <p>Laudantium totam tempore optio doloremque aut eius animi Suspendisse a elementum ante. Nunc aliquet tincidunt quam, non egestas arcu imperdiet et maecenas eu eros non nibh aliquet iaculis..</p>
-                            <small>John Cassady, Astronaut</small>
+                            <p>{{$post->body}}</p>
+                            <small>{{$post->name}}</small>
                         </div>
                     </blockquote>
                 </div>
+                @endforeach
 
-                <!-- testimonial 3-->
-                <div class="col-md-10 col-centered">
-                    <blockquote>
-                        <div class="col-md-2 col-md-offset-5 col-sm-12 col-xs-12 text-center">
-                            <!-- testimonial image-->
-                            <img src="img/testimonial3.jpg" alt="" class="res-margin img-responsive img-circle">
-                        </div>
-                        <div class="col-md-10 col-md-offset-1 quote-test">
-                            <!-- quote -->
-                            <p>Laboriosam quas, quos eaque molestias odio aut eius animi Suspendisse a elementum ante. Nunc aliquet tincidunt quam, non egestas arcu imperdiet et maecenas eu eros non nibh aliquet iaculis..</p>
-                            <small>Maria Silveira, Model</small>
-                        </div>
-                    </blockquote>
-                </div>
             </div><!--owl testimonials-->
         </div><!--/row -->
     </div><!--/container-->
@@ -535,113 +503,101 @@
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section Heading -->
         <div class="section-heading">
-            <h2>Our Prices</h2>
+            <h2>@lang("Our Prices")</h2>
             <div class="hr"></div>
         </div>
     </div>
     <div class="container wow fadeInDown" data-wow-delay="0.2s">
         <div class="row pricing-tables">
             <!-- Price table 1-->
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricing-table res-margin">
                     <div class="plan-name">
-                        <h4>Basic</h4>
+                        <h4>@lang("Free")</h4>
                     </div>
                     <div class="plan-price">
-                        <div class="price-value">$49<span>.00</span></div>
-                        <div class="interval">per month</div>
+                        <div class="price-value">0<span>.00</span>TL</div>
+                        <div class="interval">@lang("per year")</div>
                     </div>
                     <div class="plan-list">
                         <ul>
-                            <li>2 Dog walks</li>
-                            <li>1 Vet Visit</li>
-                            <li>1 Pet Spa</li>
-                            <li>10 Vet Calls</li>
-                            <li>Free Support</li>
+                            <li>@lang("30 Free Solution Rights *")</li>
+                            <li>@lang("Adding 1000 Raw Materials *")</li>
+                            <li>@lang("Adding 100 Mixtures *")</li>
+                            <li>@lang("Adding 10 Features *")</li>
+                            <li><del>@lang("Ability to Create User Profiles") </del><span class="badge badge-danger badge-pill">Pro</span></li>
+                            <li><del>@lang("Creating Production Report") </del><span class="badge badge-danger badge-pill">Pro</span></li>
+                            <li><del>@lang("Ability to Create Labeled Report")</del><span class="badge badge-danger badge-pill">Pro</span></li>
+
+                            <li>@lang("Limited Technical Support")</li>
+                            <li>@lang("* Upon reaching the limit, the account is frozen")</li>
                         </ul>
                     </div>
                     <!-- Price button-->
                     <div class="plan-signup">
-                        <a href="#" class="btn btn-default">Sign Up Now</a>
+                        <a href="#" class="btn btn-default">@lang("Register")</a>
                     </div>
                 </div>
             </div>
             <!-- Price table 2 Highlighted-->
-            <div class="col-md-3 col-sm-6 res-margin">
+            <div class="col-md-4 col-sm-6 res-margin">
                 <div class="pricing-table highlight-plan">
                     <div class="plan-name">
-                        <h4>Advanced</h4>
-                        <div class="ribbon"><span>POPULAR</span></div>
+                        <h4>@lang("Advanced")</h4>
+                        <div class="ribbon"><span>@lang("POPULAR")</span></div>
                     </div>
                     <div class="plan-price">
-                        <div class="price-value">$99<span>.00</span></div>
-                        <div class="interval">per month</div>
+                        <div class="price-value">3600 <span>.00</span>TL</div>
+                        <div class="interval">@lang("per year")</div>
                     </div>
                     <div class="plan-list">
                         <ul>
-                            <li>5 Dog walks</li>
-                            <li>3 Vet Visits</li>
-                            <li>5 Pet Spa</li>
-                            <li>20 Vet Calls</li>
-                            <li>Free Support</li>
+                            <li>@lang("Unlimited Solution Right")</li>
+                            <li>@lang("Adding Unlimited Raw Materials")</li>
+                            <li>@lang("Adding Unlimited Mixtures")</li>
+                            <li>@lang("Adding Unlimited Features")</li>
+                            <li>@lang("Ability to Create User Profiles")</li>
+                            <li>@lang("Creating Production Report")</li>
+                            <li>@lang("Ability to Create Label Report")</li>
+                            <li>@lang("Backup and Upload")</li>
+                            <li>@lang("Fast Technical Support")</li>
+                            <li>@lang("* Taxs Included")</li>
                         </ul>
                     </div>
                     <!-- Price button-->
                     <div class="plan-signup">
-                        <a href="#" class="btn btn-default">Sign Up Now</a>
+                        <a href="#" class="btn btn-default">@lang("Contact")</a>
                     </div>
                 </div>
             </div>
             <!-- Price table 3-->
-            <div class="col-md-3 col-sm-6">
+            <div class="col-md-4 col-sm-6">
                 <div class="pricing-table res-margin">
                     <div class="plan-name">
-                        <h4>Professional</h4>
+                        <h4>@lang("Academic")</h4>
                     </div>
                     <div class="plan-price">
-                        <div class="price-value">$199<span>.00</span></div>
-                        <div class="interval">per month</div>
+                        <div class="price-value">0<span>.00</span>TL</div>
+                        <div class="interval">@lang("per year")</div>
                     </div>
                     <div class="plan-list">
                         <ul>
-                            <li>10 Dog walks</li>
-                            <li>5 Vet Visits</li>
-                            <li>10 Pet Spa</li>
-                            <li>40 Vet Calls</li>
-                            <li>Free Support</li>
+                            <br>
+                            <p>
+                                @lang("Academics, Faculty of Agriculture and Veterinary Students and other academic researchers
+                             Those who want to give an idea for the development of OptimasyonX © with unlimited free use can be granted.
+                             Please contact us on the subject.")
+
+                            </p>
                         </ul>
                     </div>
                     <!-- Price button-->
                     <div class="plan-signup">
-                        <a href="#" class="btn btn-default">Sign Up Now</a>
+                        <a href="#" class="btn btn-default">@lang("Contact")</a>
                     </div>
                 </div>
             </div>
-            <!-- Price table 4-->
-            <div class="col-md-3 col-sm-6">
-                <div class="pricing-table">
-                    <div class="plan-name">
-                        <h4>Extreme</h4>
-                    </div>
-                    <div class="plan-price">
-                        <div class="price-value">$299<span>.00</span></div>
-                        <div class="interval">per month</div>
-                    </div>
-                    <div class="plan-list">
-                        <ul>
-                            <li><strong>Unlimited</strong> Dog walks</li>
-                            <li><strong>Unlimited</strong> Vet Visits</li>
-                            <li><strong>Unlimited</strong> Pet Spa</li>
-                            <li><strong>Unlimited</strong> Vet Calls</li>
-                            <li><strong>Unlimited</strong> Support</li>
-                        </ul>
-                    </div>
-                    <!-- Price button-->
-                    <div class="plan-signup">
-                        <a href="#" class="btn btn-default btn-small">Sign Up Now</a>
-                    </div>
-                </div>
-            </div>
+
         </div> <!-- /Pricing table ends -->
     </div> <!--/container -->
 </section>
@@ -651,14 +607,23 @@
 <section id="call-to-action" class="small-section">
     <div class="container text-center">
         <div class="col-md-offset-5 col-md-7 col-sm-12">
-            <h3>Discover our Pet Shop and Services</h3>
-            <p>Contact or learn more about us and make your pet happy in your visit to our Shop and discover all our amazing products and services to make your pet very healthy and active with a lot of energy this winter lorem ipsum ipsuet dolor.
-            </p>
-            <!-- Buttons -->
-            <div class="page-scroll light-btn">
-                <a class="btn btn-default wow fadeInLeft" data-wow-delay="0.2s" href="#contact">Contact us</a>
-                <a class="btn btn-default m-left wow fadeInRight" data-wow-delay="0.2s" href="#about">More about us</a>
-            </div>
+            <h3>@lang("Comment Us")</h3>
+            <form method="post" action="{{ route('posts.store') }}" enctype="multipart/form-data">
+                @csrf
+                @method('POST')
+                <div class="page-scroll light-btn">
+
+                    <div class="form-group">
+                        <input type="text" name="name" class="form-control input-field" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="body" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submit_btn" value="Submit" class="btn btn-default pull-right">@lang("Submit")</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div><!-- /container- -->
 </section>
@@ -669,155 +634,34 @@
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section heading -->
         <div class="section-heading">
-            <h2>Our Gallery</h2>
+            <h2>@lang("Our Gallery")</h2>
             <div class="hr"></div>
         </div>
     </div>
     <div class="container wow fadeInDown" data-wow-delay="0.2s">
         <div class="nav-gallery col-md-12">
             <!-- Navigation -->
-            <ul class="list-inline nav type cat">
-                <li class="active"><a href="#" data-filter="*">All</a></li>
-                <li><a href="#" data-filter=".dogcat">Dogs and Cats</a></li>
-                <li><a href="#" data-filter=".other">Other Pets</a></li>
-            </ul>
+
         </div>
         <!-- Gallery -->
         <div class="row">
             <div class="col-md-12">
                 <div id="lightbox">
                     <!-- Image 1 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
+                    @foreach($images as $image)
+                    <div class="col-sm-6 col-md-6 col-lg-4 others">
                         <div class="portfolio-item">
                             <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery1.jpg" alt="">
+                                <img class="img-responsive" src="{{ URL::to('/') }}/images/{{ $image->image }}" alt="">
                                 <span class="overlay-mask"></span>
-                                <a href="img/gallery1.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
+                                <a href="{{ URL::to('/') }}/images/{{ $image->image }}" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
                                     <i class="fa fa-expand"></i></a>
                             </div>
                         </div>
                     </div>
+                    @endforeach
                     <!-- Image 2 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery6.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery6.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 3 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery3.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery3.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 4 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery4.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery4.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 5 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery5.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery5.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 6 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery2.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery2.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 7 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery7.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery7.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 8 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery8.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery8.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 9 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery9.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery9.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 10 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery10.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery10.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 11 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 other">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery11.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery11.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Image 12 -->
-                    <div class="col-sm-6 col-md-6 col-lg-4 dogcat">
-                        <div class="portfolio-item">
-                            <div class="gallery-thumb">
-                                <img class="img-responsive" src="img/gallery12.jpg" alt="">
-                                <span class="overlay-mask"></span>
-                                <a href="img/gallery12.jpg" data-gal="prettyPhoto[gallery]" class="link centered" title="You can add caption to pictures.">
-                                    <i class="fa fa-expand"></i></a>
-                            </div>
-                        </div>
-                    </div>
+
                 </div><!-- /lightbox-->
             </div><!-- /col-md-12-->
         </div><!-- /row -->
@@ -825,518 +669,126 @@
 </section>
 <!-- Section ends -->
 
-<!-- Section Offers -->
-<section id="offers" class="home-section">
+    <!-- Section Offers -->
+    <section id="register" class="home-section">
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section Heading -->
         <div class="section-heading">
-            <h2>This Month's Offers</h2>
+            <h2>@lang("Register")</h2>
             <div class="hr"></div>
         </div>
     </div>
     <div class="container wow fadeInDown" data-wow-delay="0.2s">
         <div class="row">
-            <div class="col-md-10 col-centered">
-                <div id="owl-offers" class="owl-carousel">
-                    <!-- Offer 1 -->
-                    <div>
-                        <div class="col-sm-4 col-md-3 col-sm-offset-1">
-                            <!-- Offer image -->
-                            <img src="img/offer1.png" class="img-responsive" alt="">
-                        </div>
-                        <!-- Offer description -->
-                        <div class="col-sm-7">
-                            <div class="media-body">
-                                <h4>Vet Services: <span class="label label-default">20% OFF</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, lorem tincidunt condimentum vitae uisque mauris augue, lorem ipsum  tincidunt condimentum vitae.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Ends Offer 1 -->
-                    <!-- Offer 2 -->
-                    <div>
-                        <div class="col-sm-4 col-md-3 col-sm-offset-1">
-                            <!-- Offer image -->
-                            <img src="img/offer2.png" class="img-responsive" alt="">
-                        </div>
-                        <!-- Offer description -->
-                        <div class="col-sm-7">
-                            <div class="media-body">
-                                <h4>Pet School: <span class="label label-default">30% OFF</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, lorem tincidunt condimentum vitae uisque mauris augue, lorem ipsum  tincidunt condimentum vitae.
-                                </p>
-                            </div>
+            <div class="col-md-5 col-centered">
+
+                <form method="POST" action="{{ route('register') }}">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
-                    <!-- Ends Offer 2 -->
-                    <!-- Offer 3 -->
-                    <div>
-                        <div class="col-sm-4 col-md-3 col-sm-offset-1">
-                            <!-- Offer image -->
-                            <img src="img/offer3.png" class="img-responsive" alt="">
-                        </div>
-                        <!-- Offer description -->
-                        <div class="col-sm-7">
-                            <div class="media-body">
-                                <h4>Quality Pet Foods: <span class="label label-default">40% OFF</span></h4>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis pharetra varius quam sit amet vulputate.
-                                    Quisque mauris augue, lorem tincidunt condimentum vitae uisque mauris augue, lorem ipsum  tincidunt condimentum vitae.
-                                </p>
-                            </div>
+
+                    <div class="form-group row">
+                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                     </div>
-                    <!-- Ends Offer 3 -->
-                </div><!--/owl-offers -->
+
+                    <div class="form-group row">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Register') }}
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
             </div><!--/col-md-10 -->
         </div><!-- /row-->
     </div><!-- /container -->
 </section>
-<!-- Section ends -->
-
-<!-- Section Adoption -->
-<section id="adoption" class="home-section">
-    <div class="col-lg-8 col-lg-offset-2">
-        <!-- Section Heading -->
-        <div class="section-heading">
-            <h2>Adoption</h2>
-            <div class="hr"></div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row wow fadeInDown" data-wow-delay="0.2s">
-            <!-- Image -->
-            <div class="col-md-4 col-sm-12 res-margin">
-                <img src="img/adopt.jpg" class="img-responsive" alt="">
-            </div>
-            <div class="col-md-8">
-                <!-- Text -->
-                <h3>Looking to Adopt an Animal?</h3>
-                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ul tricies, vest ibu lum orci eget, viverra elit. Aliquam erat volut pat phas ellus ac sod ales felis tiam non metus ali quam eros accumsan mollis eget vitaeusm.
-                    donec eget metus auguen unc vel mauris ul tricies, vest ibu lum orci eget, viverra elit. Aliquam erat volut pat phas ellus ac sodales felis tiam e Aliquam erat volutpat phasellus ac sodales felis tiam non metus ali quam eros accumsan mollis eget vitae tel lusm. Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit. Aliquam erat volutpat phasellus ac sodales felis tiam non metus ali quam eros accumsan mollis eget vi tae.
-                </p>
-            </div>
-        </div><!--/row-->
-
-        <div class="row">
-            <div class="col-md-5 col-sm-6">
-                <!-- Toggle -->
-                <h4 class="text-center">Frequent Questions</h4>
-                <div class="panel-group" id="accordion">
-                    <!-- Question 1 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Is account registration required?</a>
-                            </h5>
-                        </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
-                            <div class="panel-body">
-                                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Question 2 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">How do I Apply?</a>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Question 3 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">What documents do I need to Adopt?</a>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Question 4 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour">How to choose an Pet?</a>
-                            </h5>
-                        </div>
-                        <div id="collapseFour" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Question 5 -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h5 class="panel-title">
-                                <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive">Are the animals neutered?</a>
-                            </h5>
-                        </div>
-                        <div id="collapseFive" class="panel-collapse collapse">
-                            <div class="panel-body">
-                                <p>Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/col-md-5 -->
-
-            <!-- Adopt a pet -->
-            <div class="col-md-7 col-sm-6">
-                <h4 class="text-center">Find a New Friend</h4>
-                <div id="owl-adopt" class="owl-carousel owl-theme">
-                    <!-- Animal 1 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption1.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Lilica</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Female</li>
-                                        <li><strong>Neutered: </strong> Yes</li>
-                                        <li><strong>Age:</strong> 5 years</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#1" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 1 -->
-
-                    <!-- Animal 2 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption2.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Charlie</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Male</li>
-                                        <li><strong>Neutered: </strong> No</li>
-                                        <li><strong>Age:</strong> 4 months</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#2" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 2 -->
-
-                    <!-- Animal 3 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption3.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Lucky</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Male</li>
-                                        <li><strong>Neutered: </strong> Yes</li>
-                                        <li><strong>Age:</strong> 1 year</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#3" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 3 -->
-
-                    <!-- Animal 4 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption4.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Madalene</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Female</li>
-                                        <li><strong>Neutered: </strong> No</li>
-                                        <li><strong>Age:</strong> 2 years</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#4" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 4 -->
-
-                    <!-- Animal 5 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption5.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Joanne</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Female</li>
-                                        <li><strong>Neutered: </strong> Yes</li>
-                                        <li><strong>Age:</strong> 5 years</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#5" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 5 -->
-
-                    <!-- Animal 6 -->
-                    <div>
-                        <div class="col-md-12">
-                            <div class="thumbnail text-center">
-                                <!-- Image -->
-                                <img src="img/adoption6.jpg" class="img-circle img-responsive" alt="">
-                                <!-- Name -->
-                                <div class="caption-adoption">
-                                    <h6>Cutesy</h6>
-                                    <!-- List -->
-                                    <ul class="list-unstyled">
-                                        <li><strong>Gender:</strong> Male</li>
-                                        <li><strong>Neutered: </strong> Yes</li>
-                                        <li><strong>Age:</strong> 2 years</li>
-                                    </ul>
-                                    <!-- Buttons -->
-                                    <div class="toggle-btn page-scroll text-center">
-                                        <a href="#6" class=" btn btn-default">More Info</a>
-                                    </div>
-                                </div>
-                            </div><!-- /thumbnail -->
-                        </div><!-- /col-md-12 -->
-                    </div><!-- /div -->
-                    <!-- /Animal 6 -->
-                </div><!-- /owl-adopt -->
-
-                <!-- Slide In Panel Animal 1 -->
-                <div class="cd-panel from-right" id="1">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption1.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Lilica</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-
-                <!-- Slide In Panel Animal 2 -->
-                <div class="cd-panel from-right" id="2">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption2.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Charlie</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-
-                <!-- Slide In Panel Animal 3 -->
-                <div class="cd-panel from-right" id="3">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption3.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Lucky</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-
-                <!-- Slide In Panel Animal 4 -->
-                <div class="cd-panel from-right" id="4">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption4.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Madalene</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-
-                <!-- Slide In Panel Animal 5 -->
-                <div class="cd-panel from-right" id="5">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption5.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Joanne</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-
-                <!-- Slide In Panel Animal 6 -->
-                <div class="cd-panel from-right" id="6">
-                    <div class="cd-panel-container">
-                        <div class="cd-panel-content">
-                            <div class="col-md-7 col-centered">
-                                <img src="img/adoption6.jpg" class="img-responsive" alt="">
-                            </div>
-                            <h3 class="text-center">Adopt Cutesy</h3>
-                            <p>Beatae expedita, itaque assumenda libero voluptatem adipisci maiores voluptas accusantium, blanditiis saepe culpa laborum iusto maxime quae aperiam fugiat odit consequatur soluta hic. Sed quasi beatae quia repellendus, adipisci facilis ipsa vel, aperiam, consequatur eaque mollitia quaerat. Iusto fugit inventore eveniet velit.</p>
-                            <div class="page-scroll text-center">
-                                <a href="#contact" class="cd-close btn btn-default">Adopt Now</a>  <a class="cd-close btn btn-danger m-left"><i class="fa fa-times"></i>Close</a>
-                            </div>
-                        </div><!-- /cd-panel-content -->
-                    </div><!-- /cd-panel-container -->
-                </div><!-- /cd-panel -->
-            </div><!-- /col-md-7 -->
-        </div><!-- /row -->
-    </div><!-- /container -->
-</section>
-<!-- Section ends -->
-
-<!-- Section Brands -->
-<section id="brands" class="home-section">
-    <div class="col-lg-8 col-lg-offset-2">
-        <!-- Section heading -->
-        <div class="section-heading">
-            <h2>Brands we work with</h2>
-            <div class="hr"></div>
-        </div>
-    </div>
-    <div class="container text-center">
-        <div class="row">
-            <!-- Brand 1 -->
-            <div class="col-sm-6 col-md-3 res-margin">
-                <div class="well well-sm wow fadeInLeft">
-                    <a href="#"><img src="img/client1.png" alt="client" class="col-centered img-responsive"/></a>
-                </div>
-            </div>
-            <!-- Brand 2 -->
-            <div class="col-sm-6 col-md-3 res-margin">
-                <div class="well well-sm wow fadeInLeft">
-                    <a href="#"><img src="img/client2.png" alt="client" class="col-centered img-responsive"/></a>
-                </div>
-            </div>
-            <!-- Brand 3 -->
-            <div class="col-sm-6 col-md-3 res-margin">
-                <div class="well well-sm wow fadeInRight">
-                    <a href="#"><img src="img/client3.png" alt="client" class="col-centered img-responsive"/></a>
-                </div>
-            </div>
-            <!-- Brand 4 -->
-            <div class="col-sm-6 col-md-3">
-                <div class="well well-sm wow fadeInRight">
-                    <a href="#"><img src="img/client4.png" alt="client" class="col-centered img-responsive"/></a>
-                </div>
-            </div>
-        </div><!-- /row -->
-    </div><!-- /container -->
-</section>
-<!-- Section ends -->
-
 <!-- Section Contact -->
 <section id="contact" class="home-section">
     <div class="col-lg-8 col-lg-offset-2">
         <!-- Section heading -->
         <div class="section-heading">
-            <h2>Get in touch</h2>
+            <h2>@lang("Get in touch")</h2>
             <div class="hr"></div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="margin col-md-4 col-sm-6 wow fadeInLeft" data-wow-delay="0.2s">
-                <!-- Contact info -->
-                <h4>Information</h4>
-                <p>Contact for additional information:</p>
-                <p><i class="fa fa-envelope"></i><a href="mailto:youremailaddress">petshop@site.com</a> or call us</p>
-                <p><i class="fa fa-phone"></i>+1 (123) 456 7890</p>
-                <!-- Adress info -->
-                <h4>Location & Time</h4>
-                <p><i class="fa fa-map-marker"></i>We are located at Pet City, 304.</p>
-                <p><i class="fa fa-clock-o"></i>Open from 9 a.m to 10 p.m on weekdays and from 9 a.m to 2 p.m in weekends.</p>
-            </div>
-            <div class="col-md-7 col-md-offset-1 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.2s">
-                <!-- Contact form -->
-                <div class="form-style" id="contact_form">
-                    <div id="contact_results"></div>
-                    <div class="form-group">
-                        <input type="text" name="name" class="form-control input-field" placeholder="Name" required>
+
+                <div class="row">
+                    <div class="col-md-1 col-sm-6">
+                        </div>
+                    <!-- Item 1 -->
+                    <div class="team">
+                        @foreach($staffs as $staff)
+                            <div class="col-md-3 col-sm-6">
+                                <div class="img-wrapper">
+                                    <img src="{{ URL::to('/') }}/images/{{ $staff->image }}" class="img-responsive" />
+                                </div>
+                                <!-- Caption -->
+                                <div class="caption-team">
+                                    <h5>{{$staff->name}} </h5>
+                                    <span>{{$staff->job}}</span>
+                                    <p>{{$staff->description}}.</p>
+                                </div>
+                                <!-- Social icons -->
+                                <div class="social-media margin">
+                                    <a href="https://wa.me/{{ $staff->phone }}" title=""><i class="fa fa-whatsapp"></i></a>
+                                    <a href=" mailto:{!! $staff->mail !!}" title=""><i class="fa fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        @endforeach
+
                     </div>
-                    <div class="form-group">
-                        <input type="email" name="email" class="form-control input-field"  placeholder="Email ID" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" class="form-control input-field" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" id="message" class="textarea-field form-control" rows="4" placeholder="Enter your message" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" id="submit_btn" value="Submit" class="btn btn-default pull-right">Send message</button>
-                    </div>
-                </div><!--/Contact form -->
-            </div><!-- /col-md-6 -->
+                </div><!-- /container-->
+
+
+
         </div><!-- /row -->
     </div><!-- /container-->
 </section>

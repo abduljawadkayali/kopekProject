@@ -55,7 +55,7 @@ class PostController extends Controller
         Post::create($form_data);
         //Display a successful message upon save
         toast(__('Post Added Successfully'),'success');
-        return redirect()->route('posts.index');
+        return redirect()->back();
     }
 
     /**
