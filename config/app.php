@@ -164,6 +164,7 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         'Collective\Html\HtmlServiceProvider',
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -231,6 +232,7 @@ return [
         'Form' => 'Collective\Html\FormFacade',
         'Html' => 'Collective\Html\HtmlFacade',
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
 
     ],

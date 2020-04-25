@@ -33,8 +33,9 @@
 
                     {!! Form::open(['method' => 'DELETE', 'route' => ['solution.destroy', $row->id] ]) !!}
                        <a href="{{ URL::to('solution/'.$row->id.'/edit') }}" class="btn btn-info pull-left" style="margin-right: 3px;">@lang("Edit")</a>
+                       <a href="{{ URL::to('downloadPDF/'.$row->id ) }}" class="btn btn-success pull-left" style="margin-right: 3px;">@lang("Report")</a>
                        <a href="{{ route('solution.show', $row->id ) }}" class="btn btn-warning pull-left" style="margin-right: 3px;">@lang("Show")</a>
-                        <a href="{{ route('solution.show', $row->id ) }}" class="btn btn-success pull-left" style="margin-right: 3px;">@lang("Report")</a>
+
 
                     {!! Form::submit(__('Delete'), ['class' => 'btn btn-danger']) !!}
                     {!! Form::close() !!}

@@ -8,10 +8,8 @@ use Illuminate\Http\Request;
 
 class CompanyController extends Controller
 {
-
     public function __construct() {
-        //$this->middleware('permission:Designer');
-        //
+        $this->middleware('permission:Company');
     }
     /**
      * Display a listing of the resource.

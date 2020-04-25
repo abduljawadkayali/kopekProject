@@ -11,6 +11,9 @@ use Illuminate\Http\Request;
 
 class KarmaController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:Karma');
+    }
     /**
      * Display a listing of the resource.
      *

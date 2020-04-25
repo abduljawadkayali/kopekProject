@@ -13,6 +13,9 @@ use Illuminate\Http\Request;
 
 class AnimalController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:Animal');
+    }
     /**
      * Display a listing of the resource.
      *

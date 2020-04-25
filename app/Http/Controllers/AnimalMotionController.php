@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class AnimalMotionController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:AnimalMotion');
+    }
     /**
      * Display a listing of the resource.
      *

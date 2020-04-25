@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class FoodGroupController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:FoodGroup');
+    }
     /**
      * Display a listing of the resource.
      *

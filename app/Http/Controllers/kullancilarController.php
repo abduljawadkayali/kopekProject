@@ -9,6 +9,9 @@ use Spatie\Permission\Models\Role;
 
 class kullancilarController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:kullancilar');
+    }
     /**
      * Display a listing of the resource.
      *

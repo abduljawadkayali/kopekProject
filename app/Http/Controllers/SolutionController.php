@@ -6,10 +6,14 @@ use App\Animal;
 use App\Karma;
 use App\KarmaFood;
 use App\Solution;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class SolutionController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:Solution');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -174,6 +178,16 @@ class SolutionController extends Controller
         return view('solution.view', compact('solution','animal','karma'));
     }
 
+
+    public function downloadPDF($id) {
+        $solution = Solution::findOrFail($id);
+      //  dd($solution);
+        $animal = $solution->Animal->AnimalNeed->first();
+        $karma = $solution->Karma->KarmaSpecificValue->first();
+        $pdf = PDF::loadView('solution.pdf', compact('solution', 'animal', 'karma'));
+
+        return $pdf->download('OptimasyonX.pdf');
+    }
     /**
      * Show the form for editing the specified resource.
      *

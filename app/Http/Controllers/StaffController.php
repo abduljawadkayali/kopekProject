@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class StaffController extends Controller
 {
     public function __construct() {
-        //$this->middleware('permission:Designer');
-        //
+        $this->middleware('permission:Staff');
     }
     /**
      * Display a listing of the resource.

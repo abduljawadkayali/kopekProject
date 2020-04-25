@@ -10,6 +10,9 @@ use Illuminate\Http\Request;
 
 class FoodController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:Food');
+    }
     /**
      * Display a listing of the resource.
      *

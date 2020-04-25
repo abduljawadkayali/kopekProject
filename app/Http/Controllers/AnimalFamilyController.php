@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class AnimalFamilyController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:AnimalFamily');
+    }
     /**
      * Display a listing of the resource.
      *

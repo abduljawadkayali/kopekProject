@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class FirmaController extends Controller
 {
+    public function __construct() {
+        $this->middleware('permission:Firma');
+    }
     /**
      * Display a listing of the resource.
      *

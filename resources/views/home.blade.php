@@ -160,43 +160,28 @@
                     <li><a href="#register">@lang("Register")</a></li>
                     <li><a data-toggle="modal" href="#login">@lang("Login")</a></li>
                 @else
-                    <li class="dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-
-
-                        <div aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item"
-
-
-                               href="{{ route('login') }}"
-                            >
-                                @lang("dashbored")
-                            </a>
-                            <br>
+                <li>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }}<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="{{ route('login') }}">
+                                        @lang("Dashbored")
+                                    </a>
+                                </li>
+                        <li>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                      document.getElementById('logout-form').submit();">
                                 @lang("logout")
                             </a>
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                        </ul>
-                    </li>
-
-
-
+                        </li>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </ul>
+                </li>
                 @endif
-
-
-
-
-
                 <li><a href="#contact">@lang("Contact")</a></li>
 
                 <li>
