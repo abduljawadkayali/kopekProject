@@ -62,15 +62,13 @@
     <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+
 </head>
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 @include('sweetalert::alert')
-@if(Session::has('flash_message'))
-    <div class="container">
-        <div class="alert alert-success"><em> {!! session('flash_message') !!}</em>
-        </div>
-    </div>
-@endif
+
+
+
 <div class="demo_changer">
     <div class="demo-icon">
         <i class="fa fa-cog fa-spin fa-2x"></i>
@@ -157,8 +155,48 @@
                 <li><a href="#about">@lang("About")</a></li>
                 <li><a href="#prices">@lang("Prices")</a></li>
                 <li><a href="#gallery">@lang("Gallery")</a></li>
-                <li><a href="#register">@lang("Register")</a></li>
-                <li><a href="#login">@lang("Login")</a></li>
+
+                @if(!(Auth::guard('web')->check() ))
+                    <li><a href="#register">@lang("Register")</a></li>
+                    <li><a data-toggle="modal" href="#login">@lang("Login")</a></li>
+                @else
+                    <li class="dropdown">
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            {{ Auth::user()->name }}
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+
+
+                        <div aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item"
+
+
+                               href="{{ route('login') }}"
+                            >
+                                @lang("dashbored")
+                            </a>
+                            <br>
+                            <a class="dropdown-item" href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                     document.getElementById('logout-form').submit();">
+                                @lang("logout")
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                        </ul>
+                    </li>
+
+
+
+                @endif
+
+
+
+
+
                 <li><a href="#contact">@lang("Contact")</a></li>
 
                 <li>
@@ -271,6 +309,53 @@
 </div>
 <!--/ Slider ends   -->
 
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title w-100 font-weight-bold">@lang("Login")</h4>
+            </div>
+            <form method="POST" action="{{ route('login') }}">
+                @csrf
+            <div class="modal-body">
+                <div>
+                    <i class="fa fa-envelope prefix grey-text"></i>
+                    <label data-error="wrong" data-success="right" for="defaultForm-email">@lang("Email")</label>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                </div>
+                @error('email')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+<br>
+                <div>
+                    <i class="fa fa-lock prefix grey-text"></i>
+                    <label data-error="wrong" data-success="right" for="defaultForm-pass">@lang("Password")</label>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                </div>
+                @error('password')
+                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                @enderror
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-default">
+                    {{ __('Login') }}
+                </button>
+                <a href="#register" class="btn btn-default">@lang("Register")</a>
+            </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <!-- Section services -->
 <section id="services" class="home-section">
