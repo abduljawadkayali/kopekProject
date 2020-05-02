@@ -1,11 +1,11 @@
 
 This is Dog Food project Which calculate the value of foods in Mixtures Dogs have to eat to have all needed variables 
 you will be able to add evrey think to your project it is full Dynamic 
-so you can add food, mixture, food specific , dogs and a lot of other specifics.
+so you can add food, mixture, food specific , dogs and a lot of other specifics.<br>
 
-for more technic information please contact me : Abduljawad Kayali
-Email: abduljawadkayali@gmail.com
-Phone: 00905358840111
+for more technic information please contact me : Abduljawad Kayali<br>
+Email: abduljawadkayali@gmail.com <br>
+Phone: 00905358840111<br>
 
 
 
